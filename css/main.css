@@ -1,0 +1,63 @@
+/******************************************************
+Teamplate: 
+Author: Thanh Nguyen
+Create_at: 04/05/2019 11:45
+*******************************************************/
+@font-face {
+	font-family: 'RobotoCondensed-Regular';
+	src: url('../fonts/RobotoCondensed-Regular.eot');
+	src: local('☺'), url('../fonts/RobotoCondensed-Regular.woff') format('woff'), url('../fonts/RobotoCondensed-Regular.ttf') format('truetype'), url('../fonts/RobotoCondensed-Regular.svg') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'RobotoCondensed-Light';
+	src: url('../fonts/RobotoCondensed-Light.eot');
+	src: local('☺'), url('../fonts/RobotoCondensed-Light.woff') format('woff'), url('../fonts/RobotoCondensed-Light.ttf') format('truetype'), url('../fonts/RobotoCondensed-Light.svg') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+body{
+	color: #333;
+	font-size: 1rem;
+	font-family: 'RobotoCondensed-Light';
+}
+img{
+	max-width: 100%;
+	height: auto;
+	-webkit-transition: all .4s ease;
+	   -moz-transition: all .4s ease;
+	    -ms-transition: all .4s ease;
+	     -o-transition: all .4s ease;
+	        transition: all .4s ease;
+}
+ul{
+	padding: 0;
+}
+p{
+	margin-bottom: 0;
+}
+h1, h2, h3, h4, h5, h6{
+	font-family: 'RobotoCondensed-Regular';
+	line-height: normal;
+}
+
+/*******************************************************
+					PAGE-SECTION-TITLE
+/*******************************************************/
+.content-section{
+	background-color: #252c34;
+	height: 100vh;
+	width: 100vw;
+}
+.key-area{
+	width: 100%;
+	height: 100%;
+}
+.key-area .table{
+	margin: 0 auto;
+	width: 50%;
+}
+/*******************************************************
+					LINE-SECTION-TITLE
+/*******************************************************/
