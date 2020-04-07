@@ -1,8 +1,23 @@
 /******************************************************
-Teamplate: 
+Teamplate: Demo WebBox
 Author: Thanh Nguyen
 Create_at: 04/05/2019 11:45
 *******************************************************/
+/*-----------------------------------------------------	
+	00. Style General 
+	01. Home Movie
+	02. Home Pay
+	03. Home Favorite
+	04. Categories
+	05. Categories More
+	06.	Details Movie
+	07.	Details Series Movie
+	08. Search Movie
+------------------------------------------------------*/
+
+/*----------------------------------------------------
+				00. Style General
+-----------------------------------------------------*/
 @font-face {
 	font-family: 'RobotoCondensed-Regular';
 	src: url('../fonts/RobotoCondensed-Regular.eot');
@@ -19,20 +34,29 @@ Create_at: 04/05/2019 11:45
 }
 body{
 	color: #333;
-	font-size: 1rem;
+	font-size: 18px;
 	font-family: 'RobotoCondensed-Light';
 }
 img{
 	max-width: 100%;
 	height: auto;
-	-webkit-transition: all .4s ease;
-	   -moz-transition: all .4s ease;
-	    -ms-transition: all .4s ease;
-	     -o-transition: all .4s ease;
-	        transition: all .4s ease;
+	-webkit-transition: all .3s ease;
+	   -moz-transition: all .3s ease;
+	    -ms-transition: all .3s ease;
+	     -o-transition: all .3s ease;
+	        transition: all .3s ease;
 }
 ul{
+	list-style: none;
 	padding: 0;
+	margin: 0 auto;
+}
+a{
+	color: #fff;
+}
+a:hover, a:focus{
+	color: #ff0;
+	text-decoration: none;
 }
 p{
 	margin-bottom: 0;
@@ -41,23 +65,54 @@ h1, h2, h3, h4, h5, h6{
 	font-family: 'RobotoCondensed-Regular';
 	line-height: normal;
 }
-
-/*******************************************************
-					PAGE-SECTION-TITLE
-/*******************************************************/
 .content-section{
 	background-color: #252c34;
 	height: 100vh;
+	padding: 3rem;
 	width: 100vw;
 }
-.key-area{
-	width: 100%;
-	height: 100%;
+.list-layout{
+	height: 768px;
+    overflow: hidden;
+    overflow-y: auto;
+    transition: all .4s ease;
 }
-.key-area .table{
-	margin: 0 auto;
-	width: 50%;
+.list-layout ul li a{
+	display: block;
+	padding: .5rem 0;
 }
-/*******************************************************
-					LINE-SECTION-TITLE
-/*******************************************************/
+/*----------------------------------------------------
+				00. Style General
+-----------------------------------------------------*/
+
+/*----------------------------------------------------
+				01. Home Movie
+-----------------------------------------------------*/
+
+/*----------------------------------------------------
+				02. Home Pay
+-----------------------------------------------------*/
+
+/*----------------------------------------------------
+				03. Home Favorite
+-----------------------------------------------------*/
+
+/*----------------------------------------------------
+				04. Categories
+-----------------------------------------------------*/
+
+/*----------------------------------------------------
+				05. Categories More
+-----------------------------------------------------*/
+
+/*----------------------------------------------------
+				06.	Details Movie
+-----------------------------------------------------*/
+
+/*----------------------------------------------------
+				07.	Details Series Movie
+-----------------------------------------------------*/
+
+/*----------------------------------------------------
+				08. Search Movie
+-----------------------------------------------------*/
