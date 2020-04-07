@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Detail Movies</title>
+
+		<!-- Bootstrap CSS -->
+		<link rel="stylesheet" href="css/bootstrap.min.css">
+		<link rel="stylesheet" href="css/animate.min.css">
+		<link rel="stylesheet" href="css/main.css">
+	</head>
+	<body>
+        <section class="content-detail-movies">
+            <img src="/images/detail/bg-poster-details.png" style="position: absolute;">
+            <img src="/images/detail/banner-image.jpg" style="float: right;">
+			<div class="state container-main">
+                <h3 class="line-1">Fast & Furious: Hobbs & Shaw</h3>
+                <div class="line-2">
+                    <span class="year">2019</span> |
+                    <span class="genre">Hành động</span> |
+                    <span class="time">137 Phút</span> |
+                    <span class="type">16+</span>
+                </div>
+                <div class="line-3">
+                    <p>
+                        Câu chuyện giữa hai người tưởng như không đội trời chung Đặc vụ An ninh Ngoại giao Mỹ Luke Hobbs và tên tội phạm đánh thuê khét tiếng Deckard Shaw khi họ bất đắc dĩ phải bắt tay hợp tác nhằm ngăn chặn âm mưu của trùm phản diện cực nguy hiểm
+                    </p>
+                </div>
+                <div class="line-4">
+                    <table>
+                        <tr>
+                            <td>Quốc Gia:</td>
+                            <td><div class="td-content">Mỹ</div></td>
+                        </tr>
+                        <tr>
+                            <td>Đạo diễn:</td>
+                            <td><div class="td-content">David Leitch</div></td>
+                        </tr>
+                        <tr>
+                            <td>Diễn viên:</td>
+                            <td><div class="td-content">Dwayne Johnson,Jason Staham, Idris Elba, Vanessa Kirby,...</div></td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="button button-pay hover">
+                    <span class="buyphim">Thuê phim: 29.000đ</span>
+                </div>
+                <div class="button button-fav">
+                    <span class="buyphim">Yêu thích</span>
+                </div>
+                <div class="button-discount">
+                    <span class="bg-discount">-20%</span>
+                </div>
+            </div>
+            <div class="state button-more-down">
+                <div>Xem thêm</div>
+                <img src="/images/detail/arrow.png" alt="">
+            </div>
+            <div class="state bg-blur"></div>
+            <div class="state container-suggest-movie">
+                <div class="breadcum-info">
+                    <span style="float: left;">Phim gợi ý</span>
+                    <span style="float: right;">1/16</span>
+                </div>
+                <div class="list-item-wrapper">
+
+                </div>
+                <div class="list-item">
+                    <div>
+                        <img src="/images/detail/movies/1.png" alt="">
+                        <div class="border"></div>
+                    </div>
+                    <div>
+                        <img src="/images/detail/movies/2.png" alt="">
+                        <div class="border"></div>
+                    </div>
+                    <div>
+                        <img src="/images/detail/movies/3.png" alt="">
+                        <div class="border"></div>
+                    </div>
+                    <div>
+                        <img src="/images/detail/movies/4.png" alt="">
+                        <div class="border"></div>
+                    </div>
+                    <div>
+                        <img src="/images/detail/movies/5.png" alt="">
+                        <div class="border"></div>
+                    </div>
+                    <div>
+                        <img src="/images/detail/movies/6.png" alt="">
+                        <div class="border"></div>
+                    </div>
+                    <div>
+                        <img src="/images/detail/movies/7.png" alt="">
+                        <div class="border"></div>
+                    </div>
+                    <div>
+                        <img src="/images/detail/movies/8.png" alt="">
+                        <div class="border"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <script>
+            var focusUp = 0;
+            var focusItem = 1;
+            var left = 0;
+            var countLeft = 0;
+            document.addEventListener('keydown', myFunctionkey);
+            function myFunctionkey(e){
+                switch(e.keyCode){
+                    case 38: //Up
+                        if(focusUp == 2){
+                            $('.state').removeClass('hidden');
+                            focusUp--;
+                            document.getElementsByClassName('button')[focusUp].classList.add('hover');
+                            document.getElementsByClassName('state').classList.remove('hidden');
+                        }else if(focusUp > 0){
+                            document.getElementsByClassName('button')[focusUp].classList.remove('hover');
+                            focusUp--;
+                            document.getElementsByClassName('button')[focusUp].classList.add('hover');
+                        }
+                    break;
+
+                    case 40: //Down
+                        if(focusUp >= 0){
+                            document.getElementsByClassName('button')[focusUp].classList.remove('hover');
+                            focusUp++;
+                            if(focusUp == 2){
+                                $('.state').addClass('hidden');
+                                document.getElementsByClassName('border')[focusItem - 1].classList.add('hidden');
+                            }else{
+                                document.getElementsByClassName('button')[focusUp].classList.add('hover');
+                            }
+                        }
+                    break;
+
+                    case 37:                        
+                        if(focusItem > 1){
+                            document.getElementsByClassName('border')[focusItem - 1].classList.remove('hidden');
+                            focusItem--;
+                        }
+                        if((focusItem - 1) == 0){
+                            left = 0;
+                            countLeft = 0;
+                            $('.list-item').css('left', left +'px');
+                            document.getElementsByClassName('border')[focusItem - 1].classList.add('hidden');
+                        }else{
+                            document.getElementsByClassName('border')[focusItem - 1].classList.add('hidden');
+                            if(focusItem % 8 == 0){
+                                left += 160;
+                                $('.list-item').css('left', left +'px');
+                            }
+                        }
+                    break;
+
+                    case 39:
+                        document.getElementsByClassName('border')[focusItem - 1].classList.remove('hidden');
+                        focusItem++;
+                        if(document.getElementsByClassName('border')[focusItem - 1]){
+                            if((focusItem - 1) == 0){
+                                left = 0;
+                                $('.list-item').css('left', left +'px');
+                                document.getElementsByClassName('border')[focusItem - 1].classList.add('hidden');
+                            }else{
+                                document.getElementsByClassName('border')[focusItem - 1].classList.add('hidden');
+                                var lengthArray = $('.border').length;
+                                if(focusItem % 8 == 0){
+                                    if( (focusItem/8) > countLeft ){
+                                        left -= 160;
+                                        $('.list-item').css('left', left +'px');  
+                                        countLeft = focusItem/8;
+                                    }
+                                }
+                            }
+                        }else{                            
+                            focusItem--;
+                            document.getElementsByClassName('border')[focusItem - 1].classList.add('hidden');
+                        }
+                    break;
+                }
+            }
+        </script>
+        <script src="js/jquery.min.js"></script>
+    </body>
+</html>
