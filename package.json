@@ -1,0 +1,25 @@
+{
+  "name": "demo-ui-2020",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hellodoli/demo-new-ui-2020.git"
+  },
+  "author": "PPT",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hellodoli/demo-new-ui-2020/issues"
+  },
+  "homepage": "https://github.com/hellodoli/demo-new-ui-2020#readme",
+  "devDependencies": {
+    "gulp": "^4.0.2",
+    "gulp-pug": "^4.0.1",
+    "gulp-watch": "^5.0.1",
+    "gulp-watch-pug": "^1.0.0"
+  }
+}
