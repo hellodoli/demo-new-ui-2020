@@ -1,12 +1,43 @@
+.stt-movie-row:not(:last-child){
+  margin-bottom: 1rem;
+}
+
+.stt-movie-row-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.5rem;
+  color: #fff;
+  margin-bottom: .5rem;
+}
+
 .stt-movie-row-list {
   display: flex;
   flex-wrap: nowrap;
   justify-content: flex-start;
-  min-height: 200px;
+  width: 10000px;
   margin-left: -15px;
   margin-right: -15px;
 }
 
 .stt-movie-row-item {
+  display: block;
+  min-width: 168px;
+  min-height: 200px;
   padding: 0 15px;
+}
+
+.stt-movie-row-item .stt-img-holder-ratio {
+  width: 100%;
+  height: 100%;
+}
+
+.stt-movie-row-item-focus {
+  display: block;
+  min-width: 162px;
+  min-height: 224px;
+  background: url("../../images/vod-home/focus-poster.png") center center / cover no-repeat;
+  background-size: 100% 100%;
+  position: absolute;
+  z-index: 2;
 }

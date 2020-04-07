@@ -1,13 +1,672 @@
 include ../movie-row
--
-  var movieRow01 = [
-    {src: '123'},
-    {src: '123'},
-    {src: '123'},
-    {src: '123'},
-    {src: '123'},
-    {src: '123'}
-  ];
+include ../movie-show
 
-//- Main Body
-+movieRow(movieRow01)
+//- Phim đang xem
+-
+  var movieRow01 = { // [cut] 1 3 5 7 4
+    id: 'movieRowHome0',
+    title: 'Phim đang xem',
+    page: '1/6',
+    items: [
+      {
+        src: 'images/movie01.jpg',
+        view: {
+          bigBg: 'images/vod-home/bg-transformers.jpg',
+          year: '2017',
+          duration: '149 phút',
+          type: 'Hành động',
+          ban: '16+',
+        }
+      },
+      {
+        src: 'images/vod-home/movies/1.png',
+        view: {
+          bigBg: 'images/vod-home/bg-aquaman.jpg',
+          year: '2018',
+          duration: '92 phút',
+          type: 'Hành động',
+          ban: '16+'
+        }
+      },
+      {
+        src: 'images/vod-home/movies/3.png',
+        view: {
+          bigBg: 'images/vod-home/bg-transformers.jpg',
+          year: '2017',
+          duration: '149 phút',
+          type: 'Hành động',
+          ban: '16+'
+        }
+      },
+      {
+        src: 'images/vod-home/movies/5.png',
+        view: {
+          bigBg: 'images/vod-home/bg-aquaman.jpg',
+          year: '2018',
+          duration: '92 phút',
+          type: 'Hành động',
+          ban: '16+'
+        }
+      },
+      {
+        src: 'images/vod-home/movies/7.png',
+        view: {
+          bigBg: 'images/vod-home/bg-transformers.jpg',
+          year: '2017',
+          duration: '149 phút',
+          type: 'Hành động',
+          ban: '16+'
+        }
+      },
+      {
+        src: 'images/vod-home/movies/4.png',
+        view: {
+          bigBg: 'images/vod-home/bg-aquaman.jpg',
+          year: '2018',
+          duration: '92 phút',
+          type: 'Hành động',
+          ban: '16+'
+        }
+      }
+    ]
+  };
+
+//- Phim có phí
+-
+  var movieRow02 = { // 2 4 6 1 3 7 5
+    id: 'movieRowHome1',
+    title: 'Phim có phí',
+    page: '1/16',
+    items: [
+      {
+        src: 'images/vod-home/movies/2.png',
+        view: {
+          bigBg: 'images/vod-home/bg-transformers.jpg',
+          year: '2017',
+          duration: '149 phút',
+          type: 'Hành động',
+          ban: '16+',
+        }
+      },
+      {
+        src: 'images/vod-home/movies/4.png',
+        view: {
+          bigBg: 'images/vod-home/bg-aquaman.jpg',
+          year: '2018',
+          duration: '92 phút',
+          type: 'Hành động',
+          ban: '16+'
+        }
+      },
+      {
+        src: 'images/vod-home/movies/6.png',
+        view: {
+          bigBg: 'images/vod-home/bg-transformers.jpg',
+          year: '2017',
+          duration: '149 phút',
+          type: 'Hành động',
+          ban: '16+'
+        }
+      },
+      {
+        src: 'images/vod-home/movies/1.png',
+        view: {
+          bigBg: 'images/vod-home/bg-aquaman.jpg',
+          year: '2018',
+          duration: '92 phút',
+          type: 'Hành động',
+          ban: '16+'
+        }
+      },
+      {
+        src: 'images/vod-home/movies/3.png',
+        view: {
+          bigBg: 'images/vod-home/bg-transformers.jpg',
+          year: '2017',
+          duration: '149 phút',
+          type: 'Hành động',
+          ban: '16+'
+        }
+      },
+      {
+        src: 'images/vod-home/movies/7.png',
+        view: {
+          bigBg: 'images/vod-home/bg-aquaman.jpg',
+          year: '2018',
+          duration: '92 phút',
+          type: 'Hành động',
+          ban: '16+'
+        }
+      },
+      {
+        src: 'images/vod-home/movies/5.png',
+        view: {
+          bigBg: 'images/vod-home/bg-transformers.jpg',
+          year: '2017',
+          duration: '149 phút',
+          type: 'Hành động',
+          ban: '16+',
+        }
+      },
+
+      {
+        src: 'images/vod-home/movies/2.png',
+        view: {
+          bigBg: 'images/vod-home/bg-transformers.jpg',
+          year: '2017',
+          duration: '149 phút',
+          type: 'Hành động',
+          ban: '16+',
+        }
+      },
+      {
+        src: 'images/vod-home/movies/4.png',
+        view: {
+          bigBg: 'images/vod-home/bg-aquaman.jpg',
+          year: '2018',
+          duration: '92 phút',
+          type: 'Hành động',
+          ban: '16+'
+        }
+      },
+      {
+        src: 'images/vod-home/movies/6.png',
+        view: {
+          bigBg: 'images/vod-home/bg-transformers.jpg',
+          year: '2017',
+          duration: '149 phút',
+          type: 'Hành động',
+          ban: '16+'
+        }
+      },
+      {
+        src: 'images/vod-home/movies/1.png',
+        view: {
+          bigBg: 'images/vod-home/bg-aquaman.jpg',
+          year: '2018',
+          duration: '92 phút',
+          type: 'Hành động',
+          ban: '16+'
+        }
+      },
+      {
+        src: 'images/vod-home/movies/3.png',
+        view: {
+          bigBg: 'images/vod-home/bg-transformers.jpg',
+          year: '2017',
+          duration: '149 phút',
+          type: 'Hành động',
+          ban: '16+'
+        }
+      },
+      {
+        src: 'images/vod-home/movies/7.png',
+        view: {
+          bigBg: 'images/vod-home/bg-aquaman.jpg',
+          year: '2018',
+          duration: '92 phút',
+          type: 'Hành động',
+          ban: '16+'
+        }
+      },
+      {
+        src: 'images/vod-home/movies/5.png',
+        view: {
+          bigBg: 'images/vod-home/bg-transformers.jpg',
+          year: '2017',
+          duration: '149 phút',
+          type: 'Hành động',
+          ban: '16+',
+        }
+      },
+
+      {
+        src: 'images/vod-home/movies/2.png',
+        view: {
+          bigBg: 'images/vod-home/bg-transformers.jpg',
+          year: '2017',
+          duration: '149 phút',
+          type: 'Hành động',
+          ban: '16+',
+        }
+      },
+      {
+        src: 'images/vod-home/movies/4.png',
+        view: {
+          bigBg: 'images/vod-home/bg-aquaman.jpg',
+          year: '2018',
+          duration: '92 phút',
+          type: 'Hành động',
+          ban: '16+'
+        }
+      },
+      {
+        src: 'images/vod-home/movies/6.png',
+        view: {
+          bigBg: 'images/vod-home/bg-transformers.jpg',
+          year: '2017',
+          duration: '149 phút',
+          type: 'Hành động',
+          ban: '16+'
+        }
+      },
+      {
+        src: 'images/vod-home/movies/1.png',
+        view: {
+          bigBg: 'images/vod-home/bg-aquaman.jpg',
+          year: '2018',
+          duration: '92 phút',
+          type: 'Hành động',
+          ban: '16+'
+        }
+      },
+      {
+        src: 'images/vod-home/movies/3.png',
+        view: {
+          bigBg: 'images/vod-home/bg-transformers.jpg',
+          year: '2017',
+          duration: '149 phút',
+          type: 'Hành động',
+          ban: '16+'
+        }
+      },
+      {
+        src: 'images/vod-home/movies/7.png',
+        view: {
+          bigBg: 'images/vod-home/bg-aquaman.jpg',
+          year: '2018',
+          duration: '92 phút',
+          type: 'Hành động',
+          ban: '16+'
+        }
+      },
+      {
+        src: 'images/vod-home/movies/5.png',
+        view: {
+          bigBg: 'images/vod-home/bg-transformers.jpg',
+          year: '2017',
+          duration: '149 phút',
+          type: 'Hành động',
+          ban: '16+',
+        }
+      },
+
+      {
+        src: 'images/vod-home/movies/2.png',
+        view: {
+          bigBg: 'images/vod-home/bg-transformers.jpg',
+          year: '2017',
+          duration: '149 phút',
+          type: 'Hành động',
+          ban: '16+',
+        }
+      },
+      {
+        src: 'images/vod-home/movies/4.png',
+        view: {
+          bigBg: 'images/vod-home/bg-aquaman.jpg',
+          year: '2018',
+          duration: '92 phút',
+          type: 'Hành động',
+          ban: '16+'
+        }
+      },
+      {
+        src: 'images/vod-home/movies/6.png',
+        view: {
+          bigBg: 'images/vod-home/bg-transformers.jpg',
+          year: '2017',
+          duration: '149 phút',
+          type: 'Hành động',
+          ban: '16+'
+        }
+      },
+      {
+        src: 'images/vod-home/movies/1.png',
+        view: {
+          bigBg: 'images/vod-home/bg-aquaman.jpg',
+          year: '2018',
+          duration: '92 phút',
+          type: 'Hành động',
+          ban: '16+'
+        }
+      },
+      {
+        src: 'images/vod-home/movies/3.png',
+        view: {
+          bigBg: 'images/vod-home/bg-transformers.jpg',
+          year: '2017',
+          duration: '149 phút',
+          type: 'Hành động',
+          ban: '16+'
+        }
+      },
+      {
+        src: 'images/vod-home/movies/7.png',
+        view: {
+          bigBg: 'images/vod-home/bg-aquaman.jpg',
+          year: '2018',
+          duration: '92 phút',
+          type: 'Hành động',
+          ban: '16+'
+        }
+      },
+      {
+        src: 'images/vod-home/movies/5.png',
+        view: {
+          bigBg: 'images/vod-home/bg-transformers.jpg',
+          year: '2017',
+          duration: '149 phút',
+          type: 'Hành động',
+          ban: '16+',
+        }
+      },
+    ]
+  };
+
+//- Phim có phí
+-
+  var movieRow03 = { // 3 5 6 2 1 7 4
+    id: 'movieRowHome2',
+    title: 'Phim mới',
+    page: '1/16',
+    items: [
+      {
+        src: 'images/vod-home/movies/3.png',
+        view: {
+          bigBg: 'images/vod-home/bg-transformers.jpg',
+          year: '2017',
+          duration: '149 phút',
+          type: 'Hành động',
+          ban: '16+'
+        }
+      },
+      {
+        src: 'images/vod-home/movies/5.png',
+        view: {
+          bigBg: 'images/vod-home/bg-transformers.jpg',
+          year: '2017',
+          duration: '149 phút',
+          type: 'Hành động',
+          ban: '16+',
+        }
+      },
+      {
+        src: 'images/vod-home/movies/6.png',
+        view: {
+          bigBg: 'images/vod-home/bg-transformers.jpg',
+          year: '2017',
+          duration: '149 phút',
+          type: 'Hành động',
+          ban: '16+'
+        }
+      },
+      {
+        src: 'images/vod-home/movies/2.png',
+        view: {
+          bigBg: 'images/vod-home/bg-transformers.jpg',
+          year: '2017',
+          duration: '149 phút',
+          type: 'Hành động',
+          ban: '16+',
+        }
+      },
+      {
+        src: 'images/vod-home/movies/1.png',
+        view: {
+          bigBg: 'images/vod-home/bg-aquaman.jpg',
+          year: '2018',
+          duration: '92 phút',
+          type: 'Hành động',
+          ban: '16+'
+        }
+      },
+      {
+        src: 'images/vod-home/movies/7.png',
+        view: {
+          bigBg: 'images/vod-home/bg-aquaman.jpg',
+          year: '2018',
+          duration: '92 phút',
+          type: 'Hành động',
+          ban: '16+'
+        }
+      },
+      {
+        src: 'images/vod-home/movies/4.png',
+        view: {
+          bigBg: 'images/vod-home/bg-aquaman.jpg',
+          year: '2018',
+          duration: '92 phút',
+          type: 'Hành động',
+          ban: '16+'
+        }
+      },
+
+      {
+        src: 'images/vod-home/movies/3.png',
+        view: {
+          bigBg: 'images/vod-home/bg-transformers.jpg',
+          year: '2017',
+          duration: '149 phút',
+          type: 'Hành động',
+          ban: '16+'
+        }
+      },
+      {
+        src: 'images/vod-home/movies/5.png',
+        view: {
+          bigBg: 'images/vod-home/bg-transformers.jpg',
+          year: '2017',
+          duration: '149 phút',
+          type: 'Hành động',
+          ban: '16+',
+        }
+      },
+      {
+        src: 'images/vod-home/movies/6.png',
+        view: {
+          bigBg: 'images/vod-home/bg-transformers.jpg',
+          year: '2017',
+          duration: '149 phút',
+          type: 'Hành động',
+          ban: '16+'
+        }
+      },
+      {
+        src: 'images/vod-home/movies/2.png',
+        view: {
+          bigBg: 'images/vod-home/bg-transformers.jpg',
+          year: '2017',
+          duration: '149 phút',
+          type: 'Hành động',
+          ban: '16+',
+        }
+      },
+      {
+        src: 'images/vod-home/movies/1.png',
+        view: {
+          bigBg: 'images/vod-home/bg-aquaman.jpg',
+          year: '2018',
+          duration: '92 phút',
+          type: 'Hành động',
+          ban: '16+'
+        }
+      },
+      {
+        src: 'images/vod-home/movies/7.png',
+        view: {
+          bigBg: 'images/vod-home/bg-aquaman.jpg',
+          year: '2018',
+          duration: '92 phút',
+          type: 'Hành động',
+          ban: '16+'
+        }
+      },
+      {
+        src: 'images/vod-home/movies/4.png',
+        view: {
+          bigBg: 'images/vod-home/bg-aquaman.jpg',
+          year: '2018',
+          duration: '92 phút',
+          type: 'Hành động',
+          ban: '16+'
+        }
+      },
+
+      {
+        src: 'images/vod-home/movies/3.png',
+        view: {
+          bigBg: 'images/vod-home/bg-transformers.jpg',
+          year: '2017',
+          duration: '149 phút',
+          type: 'Hành động',
+          ban: '16+'
+        }
+      },
+      {
+        src: 'images/vod-home/movies/5.png',
+        view: {
+          bigBg: 'images/vod-home/bg-transformers.jpg',
+          year: '2017',
+          duration: '149 phút',
+          type: 'Hành động',
+          ban: '16+',
+        }
+      },
+      {
+        src: 'images/vod-home/movies/6.png',
+        view: {
+          bigBg: 'images/vod-home/bg-transformers.jpg',
+          year: '2017',
+          duration: '149 phút',
+          type: 'Hành động',
+          ban: '16+'
+        }
+      },
+      {
+        src: 'images/vod-home/movies/2.png',
+        view: {
+          bigBg: 'images/vod-home/bg-transformers.jpg',
+          year: '2017',
+          duration: '149 phút',
+          type: 'Hành động',
+          ban: '16+',
+        }
+      },
+      {
+        src: 'images/vod-home/movies/1.png',
+        view: {
+          bigBg: 'images/vod-home/bg-aquaman.jpg',
+          year: '2018',
+          duration: '92 phút',
+          type: 'Hành động',
+          ban: '16+'
+        }
+      },
+      {
+        src: 'images/vod-home/movies/7.png',
+        view: {
+          bigBg: 'images/vod-home/bg-aquaman.jpg',
+          year: '2018',
+          duration: '92 phút',
+          type: 'Hành động',
+          ban: '16+'
+        }
+      },
+      {
+        src: 'images/vod-home/movies/4.png',
+        view: {
+          bigBg: 'images/vod-home/bg-aquaman.jpg',
+          year: '2018',
+          duration: '92 phút',
+          type: 'Hành động',
+          ban: '16+'
+        }
+      },
+
+      {
+        src: 'images/vod-home/movies/3.png',
+        view: {
+          bigBg: 'images/vod-home/bg-transformers.jpg',
+          year: '2017',
+          duration: '149 phút',
+          type: 'Hành động',
+          ban: '16+'
+        }
+      },
+      {
+        src: 'images/vod-home/movies/5.png',
+        view: {
+          bigBg: 'images/vod-home/bg-transformers.jpg',
+          year: '2017',
+          duration: '149 phút',
+          type: 'Hành động',
+          ban: '16+',
+        }
+      },
+      {
+        src: 'images/vod-home/movies/6.png',
+        view: {
+          bigBg: 'images/vod-home/bg-transformers.jpg',
+          year: '2017',
+          duration: '149 phút',
+          type: 'Hành động',
+          ban: '16+'
+        }
+      },
+      {
+        src: 'images/vod-home/movies/2.png',
+        view: {
+          bigBg: 'images/vod-home/bg-transformers.jpg',
+          year: '2017',
+          duration: '149 phút',
+          type: 'Hành động',
+          ban: '16+',
+        }
+      },
+      {
+        src: 'images/vod-home/movies/1.png',
+        view: {
+          bigBg: 'images/vod-home/bg-aquaman.jpg',
+          year: '2018',
+          duration: '92 phút',
+          type: 'Hành động',
+          ban: '16+'
+        }
+      },
+      {
+        src: 'images/vod-home/movies/7.png',
+        view: {
+          bigBg: 'images/vod-home/bg-aquaman.jpg',
+          year: '2018',
+          duration: '92 phút',
+          type: 'Hành động',
+          ban: '16+'
+        }
+      },
+      {
+        src: 'images/vod-home/movies/4.png',
+        view: {
+          bigBg: 'images/vod-home/bg-aquaman.jpg',
+          year: '2018',
+          duration: '92 phút',
+          type: 'Hành động',
+          ban: '16+'
+        }
+      },
+    ]
+  };
+
+
+//- Main
+.stt-section
+  .stt-movie-row-item-focus
+  div.stt-movie-container
+    +movieShow()
+    .stt-section-contain
+      .stt-section-contain-slide
+        +movieRow(movieRow01)
+        +movieRow(movieRow02)
+        +movieRow(movieRow03)
+  .stt-section-overlay.is-top
+  .stt-section-overlay.is-bottom

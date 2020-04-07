@@ -1,0 +1,57 @@
+/* Buttons */
+.stt-btn {
+  display: inline-flex;
+  justify-content: space-between;
+  align-items: center;
+  min-width: 170px;
+  height: 55px;
+  font-size: 1.25rem;
+  font-weight: 400;
+  color: #bcbdbe;
+  background-color: #40464d;
+  text-align: center;
+  border: 1px solid transparent;
+  line-height: 1.5;
+  border-radius: 8px;
+  padding: 6px 24px;
+}
+
+.stt-btn.is-locked {
+  width: 9rem;
+  height: 2.5rem;
+  line-height: 2.5rem;
+  padding: 0 1rem;
+}
+
+.stt-btn.has-trasition {
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+    border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.stt-btn.is-disabled {
+  cursor: not-allowed;
+}
+
+.stt-btn.has-icon .icon:first-child,
+.stt-btn.has-icon>img:first-child {
+  margin-right: 0.75rem;
+}
+
+.stt-btn.has-icon .icon:last-child,
+.stt-btn.has-icon>img:last-child {
+  margin-left: 0.75rem;
+}
+
+.stt-btn.is-active {
+
+}
+
+.stt-btn-group {
+  position: relative;
+  display: inline-flex;
+  vertical-align: middle;
+}
+
+.stt-btn-group .stt-btn + .stt-btn {
+  margin-left: 0.85rem;
+}

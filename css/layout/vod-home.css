@@ -1,0 +1,70 @@
+.stt-movie-view-info {
+  padding-top: 10rem;
+  padding-bottom: 2rem;
+}
+
+.stt-movie-view-meta-group {
+  display: flex;
+  font-size: 1rem;
+  color: #acaeaf;
+  margin-bottom: 15px;
+  margin-left: -15px;
+  margin-right: -15px;
+}
+
+.stt-movie-view-meta-group > div {
+  position: relative;
+  padding: 0 16px;
+}
+
+.stt-movie-view-meta-group > div:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 0;
+  display: block;
+  height: 15px;
+  width: 1px;
+  background: #9d9fa2;
+}
+
+.stt-section-contain {
+  margin: 0 -66px;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.stt-section-overlay {
+  position: absolute;
+  display: block;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: 100% auto;
+  background-repeat: no-repeat;
+}
+
+.stt-section-overlay.is-top {
+  background-image: url('../../images/vod-home/mask-header.png');
+  background-position: 0 0;
+}
+
+.stt-section-overlay.is-bottom {
+  background-image: url('../../images/vod-home/mask-header.png');
+  background-position: 0 0;
+  transform: rotate(180deg);
+}
+
+.stt-section-contain-slide {
+  padding-left: 65px;
+  padding-right: 65px;
+}
+
+.stt-movie-container {
+  width: 100%;
+  height: auto;
+  padding: 65px;
+}
