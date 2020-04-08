@@ -17,7 +17,7 @@ var keyDown = {
 };
 
 var urlDetailMovies = location.origin + '/vod-detail-movies.html';
-console.log(urlDetailMovies);
+var urlDetailSeriesMovies = location.origin + '/vod-detail-series-movies.html';
 
 document.onkeydown = function(event) {
     switch (event.keyCode) {

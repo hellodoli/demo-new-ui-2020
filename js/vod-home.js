@@ -198,9 +198,10 @@ function controlUp() {
 }
 
 function controlEnter () {
-  if (indexRowCurrent == 1 || indexRowCurrent == 2) {
-    console.log(urlDetailMovies);
-    history.go(urlDetailMovies);
+  if (indexRowCurrent == 1) {
+    location.href = urlDetailMovies;
+  }else{
+    location.href = urlDetailSeriesMovies;
   }
 }
 
