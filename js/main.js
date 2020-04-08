@@ -18,6 +18,8 @@ var keyDown = {
 
 var urlDetailMovies = location.origin + '/vod-detail-movies.html';
 var urlDetailSeriesMovies = location.origin + '/vod-detail-series-movies.html';
+var urlCategoriesMovies = location.origin + '/vod-categories.html';
+var urlHomeMoview = location.origin + '/vod-home.html';
 
 document.onkeydown = function(event) {
     switch (event.keyCode) {

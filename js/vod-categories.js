@@ -351,6 +351,8 @@ function controlBack () {
       .css({ 'transition': '' })
       .css({ 'transform': 'translateY(' + trans + 'px)' });
     $('.stt-movie-more').addClass('is-hide');
+  } else {
+    window.history.back();
   }
 }
 

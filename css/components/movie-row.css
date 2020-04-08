@@ -48,6 +48,11 @@
   z-index: 2;
 }
 
+.stt-movie-row-item-focus {
+  top: 388px;
+  left: 52px;
+}
+
 .stt-movie-row-item-focus-2 {
   display: none;
   z-index: 5;

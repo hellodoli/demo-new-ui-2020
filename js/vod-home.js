@@ -8,22 +8,64 @@ var indexRowCurrent = 0;
 
 var numPageRow2 = 1;
 var numPageRow3 = 1;
+
+var menuH = null;
+var indexMenuCurrent = 0;
+
+function resetButton () {
+  $('.stt-movie-view-info .stt-btn.btn-1').removeClass('active');
+  $('.stt-movie-view-info .stt-btn.btn-1')
+    .find('img').attr('src', 'images/vod-home/icon/icon-play-normal.png');
+  $('.stt-movie-view-info .stt-btn.btn-2').removeClass('active');
+  $('.stt-movie-view-info .stt-btn.btn-2')
+    .find('img').attr('src', 'images/vod-home/icon/icon-info-normal.png'); 
+}
+
+function swapButton () {
+  if ($('.stt-movie-view-info .stt-btn.btn-1').hasClass('active')) {
+    $('.stt-movie-view-info .stt-btn.btn-1').removeClass('active');
+    $('.stt-movie-view-info .stt-btn.btn-1')
+      .find('img').attr('src', 'images/vod-home/icon/icon-play-normal.png');
+    $('.stt-movie-view-info .stt-btn.btn-2').addClass('active');
+    $('.stt-movie-view-info .stt-btn.btn-2')
+      .find('img').attr('src', 'images/vod-home/icon/icon-info-focus.png');
+  } else {
+    $('.stt-movie-view-info .stt-btn.btn-2').removeClass('active');
+    $('.stt-movie-view-info .stt-btn.btn-2')
+      .find('img').attr('src', 'images/vod-home/icon/icon-info-normal.png');
+    $('.stt-movie-view-info .stt-btn.btn-1').addClass('active');
+    $('.stt-movie-view-info .stt-btn.btn-1')
+      .find('img').attr('src', 'images/vod-home/icon/icon-play-focus.png');
+  }
+}
+
+function slideFocusMenu () {
+  var pos = $('.menu-item.focus').position();
+  $('.fake-indicator').css({
+    left: pos.left,
+    top: pos.top
+  });
+}
+
+function setActiveMenu () {
+  if (menuH.length > 0) {
+    $('.menu-item').removeClass('focus');
+    $(menuH[indexMenuCurrent]).addClass('focus');
+  }
+}
+
+function activeMenu () {
+  setActiveMenu();
+  setTimeout(slideFocusMenu, 10);
+}
+
 function controlRight () {
   if (indexRowCurrent == -1) {
-    if ($('.stt-movie-view-info .stt-btn.btn-1').hasClass('active')) {
-      $('.stt-movie-view-info .stt-btn.btn-1').removeClass('active');
-      $('.stt-movie-view-info .stt-btn.btn-1')
-        .find('img').attr('src', 'images/vod-home/icon/icon-play-normal.png');
-      $('.stt-movie-view-info .stt-btn.btn-2').addClass('active');
-      $('.stt-movie-view-info .stt-btn.btn-2')
-        .find('img').attr('src', 'images/vod-home/icon/icon-info-focus.png');
-    } else {
-      $('.stt-movie-view-info .stt-btn.btn-2').removeClass('active');
-      $('.stt-movie-view-info .stt-btn.btn-2')
-        .find('img').attr('src', 'images/vod-home/icon/icon-info-normal.png');
-      $('.stt-movie-view-info .stt-btn.btn-1').addClass('active');
-      $('.stt-movie-view-info .stt-btn.btn-1')
-        .find('img').attr('src', 'images/vod-home/icon/icon-play-focus.png')
+    swapButton();
+  } else if (indexRowCurrent == -2) {
+    if (indexMenuCurrent < 3) {
+      indexMenuCurrent += 1;
+      activeMenu();
     }
   } else {
     indexMovieCurrent += 1;
@@ -78,20 +120,11 @@ function controlRight () {
 
 function controlLeft () {
   if (indexRowCurrent == -1) {
-    if ($('.stt-movie-view-info .stt-btn.btn-1').hasClass('active')) {
-      $('.stt-movie-view-info .stt-btn.btn-1').removeClass('active');
-      $('.stt-movie-view-info .stt-btn.btn-1')
-        .find('img').attr('src', 'images/vod-home/icon/icon-play-normal.png');
-      $('.stt-movie-view-info .stt-btn.btn-2').addClass('active');
-      $('.stt-movie-view-info .stt-btn.btn-2')
-        .find('img').attr('src', 'images/vod-home/icon/icon-info-focus.png');
-    } else {
-      $('.stt-movie-view-info .stt-btn.btn-2').removeClass('active');
-      $('.stt-movie-view-info .stt-btn.btn-2')
-        .find('img').attr('src', 'images/vod-home/icon/icon-info-normal.png');
-      $('.stt-movie-view-info .stt-btn.btn-1').addClass('active');
-      $('.stt-movie-view-info .stt-btn.btn-1')
-        .find('img').attr('src', 'images/vod-home/icon/icon-play-focus.png')
+    swapButton();
+  } else if (indexRowCurrent == -2) {
+    if (indexMenuCurrent > 0) {
+      indexMenuCurrent -= 1;
+      activeMenu();
     }
   } else {
     if (indexMovieCurrent > 0) {
@@ -139,7 +172,24 @@ function controlLeft () {
 function controlDown() {
   if (indexRowCurrent < 2) {
     indexRowCurrent += 1;
-    if (indexRowCurrent == 0) {
+    if (indexRowCurrent == -1) {
+      indexMenuCurrent = 0;
+      $('.menu-item').removeClass('focus');
+      $('.fake-indicator').hide();
+      activeMenu();
+      
+      if (saveButton == 1) {
+        $('.stt-movie-view-info .stt-btn.btn-1').addClass('active');
+        $('.stt-movie-view-info .stt-btn.btn-1')
+          .find('img').attr('src', 'images/vod-home/icon/icon-play-focus.png');
+      } else {
+        $('.stt-movie-view-info .stt-btn.btn-2').addClass('active');
+        $('.stt-movie-view-info .stt-btn.btn-2')
+          .find('img').attr('src', 'images/vod-home/icon/icon-info-focus.png');
+      }
+      saveButton = 0;
+      return;
+    } else if (indexRowCurrent == 0) {
       $('.stt-movie-view-info .stt-btn').removeClass('active');
       $('.stt-movie-view-info .stt-btn.btn-1').find('img').attr('src', 'images/vod-home/icon/icon-play-normal.png');
       $('.stt-movie-view-info .stt-btn.btn-2').find('img').attr('src', 'images/vod-home/icon/icon-info-normal.png');
@@ -162,8 +212,9 @@ function controlDown() {
   }
 }
 
+var saveButton = 0;
 function controlUp() {
-  if (indexRowCurrent > -1) {
+  if (indexRowCurrent > -2) {
     indexRowCurrent -= 1;
     if (indexRowCurrent == 0) { // row 1
       tempIndexMovieCurrent2 = indexMovieCurrent; // lưu row 2
@@ -193,14 +244,31 @@ function controlUp() {
       $('.stt-movie-view-info .stt-btn').removeClass('active');
       $('.stt-movie-view-info .stt-btn.btn-1').addClass('active');
       $('.stt-movie-view-info .stt-btn.btn-1').find('img').attr('src', 'images/vod-home/icon/icon-play-focus.png');
+    } else if (indexRowCurrent == -2) { // focus menu
+      indexMenuCurrent = 0;
+      if ($('.stt-btn.btn-1').hasClass('active')) {
+        saveButton = 1;
+      } else {
+        saveButton = 2;
+      }
+      resetButton();
+      $('.menu-item.active').addClass('focus');
+      $('.fake-indicator').show();
     }
   }
 }
 
 function controlEnter () {
+  if (indexRowCurrent == -2) {
+    if ($('.menu-item.focus').html() == 'Khám phá') {
+      console.log(urlCategoriesMovies);
+      location.href = urlCategoriesMovies;
+    }
+    return;
+  }
   if (indexRowCurrent == 1) {
     location.href = urlDetailMovies;
-  }else{
+  } else {
     location.href = urlDetailSeriesMovies;
   }
 }
@@ -295,6 +363,9 @@ function setPage () {
 
 function init () {
   $('.stt-movie-container').css({ transition: 'all .2s ease' });
+  $('.stt-section-overlay.is-top').hide();
+  $('.fake-indicator').hide();
+  $('.fake-indicator').css({ transition: 'all .2s ease' });
   setCurrentMovieActive();
   setCurrentMovieView();
 
@@ -317,6 +388,9 @@ function getCurrentMovie (isJquery) {
 
 $(document).ready(function () {
   console.log('vod Home ready');
+  menuH = document.querySelectorAll('.stt-section-header .menu-item');
+  $(menuH[indexMenuCurrent]).removeClass('focus');
+
 
   keyDown.left = controlLeft;
   keyDown.right = controlRight;
