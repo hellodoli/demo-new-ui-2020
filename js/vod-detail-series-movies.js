@@ -11,10 +11,13 @@ function myFunctionkey(e){
                 $('.content-detail-series-movies-episodes').addClass('hidden');
                 focusUp = 4;
                 document.getElementsByClassName('button')[focusUp].classList.add('hover');
+            }else if(focusUp == 3){
+                location.href = location.origin + '/vod-detail-movies.html';
             }
             break;
         case 8:
             if(focusUp >= 4){
+                document.getElementsByClassName('button')[focusUp].classList.remove('hover');
                 focusUp = 1;
                 document.getElementsByClassName('button')[focusUp].classList.add('hover');
                 $('.content-detail-series-movies-episodes').removeClass('hidden');

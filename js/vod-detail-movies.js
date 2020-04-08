@@ -5,6 +5,11 @@ var countLeft = 0;
 document.addEventListener('keydown', myFunctionkey);
 function myFunctionkey(e){
     switch(e.keyCode){
+        case 13:
+            if(focusUp == 2){
+                location.href = location.origin + '/vod-detail-series-movies.html';
+            }
+            break;
         case 8:
             window.history.back()
             break;
