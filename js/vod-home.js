@@ -9,73 +9,48 @@ var indexRowCurrent = 0;
 var numPageRow2 = 1;
 var numPageRow3 = 1;
 function controlRight () {
-  indexMovieCurrent += 1;
-  if (indexRowCurrent == 0) { // max 6
-    if (indexMovieCurrent > 5) {
-      indexMovieCurrent = 5;
-      return;
+  if (indexRowCurrent == -1) {
+    if ($('.stt-movie-view-info .stt-btn.btn-1').hasClass('active')) {
+      $('.stt-movie-view-info .stt-btn.btn-1').removeClass('active');
+      $('.stt-movie-view-info .stt-btn.btn-1')
+        .find('img').attr('src', 'images/vod-home/icon/icon-play-normal.png');
+      $('.stt-movie-view-info .stt-btn.btn-2').addClass('active');
+      $('.stt-movie-view-info .stt-btn.btn-2')
+        .find('img').attr('src', 'images/vod-home/icon/icon-info-focus.png');
+    } else {
+      $('.stt-movie-view-info .stt-btn.btn-2').removeClass('active');
+      $('.stt-movie-view-info .stt-btn.btn-2')
+        .find('img').attr('src', 'images/vod-home/icon/icon-info-normal.png');
+      $('.stt-movie-view-info .stt-btn.btn-1').addClass('active');
+      $('.stt-movie-view-info .stt-btn.btn-1')
+        .find('img').attr('src', 'images/vod-home/icon/icon-play-focus.png')
     }
-  }
-
-  if (indexMovieCurrent % 7 == 0) {
-    var rowMovies = document.getElementsByClassName('stt-movie-row');
-    var $a = $(rowMovies[indexRowCurrent]).find('.stt-movie-row-list');
-    var trans = (138 + 30)*7;
-    
-    if (indexRowCurrent == 1) {
-      startLoop2 = true;
-      numPageRow2 += 1;
-      if (numPageRow2 > 16) numPageRow2 = 1;
-    } else if (indexRowCurrent == 2) {
-      startLoop3 = true;
-      numPageRow3 += 1;
-      if (numPageRow3 > 16) numPageRow3 = 1;
-    }
-    
-    // slide
-    $a.css({ 'transform': 'translateX('+ (-trans)+ 'px)'});
-    setTimeout(function () {
-      $a.css({
-        'transition': 'all .2s linear',
-        'transform': 'translateX(' + 2*(-trans) +'px)'
-      })
-      setTimeout(function () {
-        $a.css({ 'transition': '' });
-      }, 200);
-    }, 20);
-    
-    indexMovieCurrent = 14; // hack code
-    $('.stt-movie-row-item-focus')
-      .hide()
-      .css({ 'transition': '' });
-    setCurrentMovieActive();
-    setCurrentMovieView();
-    setTimeout(setSlideToFocusReset, 250);
-    
-    setPage();
   } else {
-    setActive();
-  }
-}
+    indexMovieCurrent += 1;
+    if (indexRowCurrent == 0) { // max 6
+      if (indexMovieCurrent > 5) {
+        indexMovieCurrent = 5;
+        return;
+      }
+    }
 
-function controlLeft () {
-  if (indexMovieCurrent > 0) {
-    indexMovieCurrent -= 1;
-    if ((indexMovieCurrent + 1) % 7 == 0) {
+    if (indexMovieCurrent % 7 == 0) {
       var rowMovies = document.getElementsByClassName('stt-movie-row');
       var $a = $(rowMovies[indexRowCurrent]).find('.stt-movie-row-list');
       var trans = (138 + 30)*7;
-
+      
       if (indexRowCurrent == 1) {
-        numPageRow2 -= 1;
-        if (numPageRow2 < 1) numPageRow2 = 16;
+        startLoop2 = true;
+        numPageRow2 += 1;
+        if (numPageRow2 > 16) numPageRow2 = 1;
       } else if (indexRowCurrent == 2) {
-        numPageRow3 -= 1;
-        if (numPageRow3 < 1) numPageRow3 = 16;
+        startLoop3 = true;
+        numPageRow3 += 1;
+        if (numPageRow3 > 16) numPageRow3 = 1;
       }
-
+      
       // slide
-      $a.css({ 'transform': 'translateX('+ 3*(-trans)+ 'px)'});
+      $a.css({ 'transform': 'translateX('+ (-trans)+ 'px)'});
       setTimeout(function () {
         $a.css({
           'transition': 'all .2s linear',
@@ -86,13 +61,14 @@ function controlLeft () {
         }, 200);
       }, 20);
       
-      indexMovieCurrent = 20; // hack code
+      indexMovieCurrent = 14; // hack code
       $('.stt-movie-row-item-focus')
         .hide()
         .css({ 'transition': '' });
       setCurrentMovieActive();
       setCurrentMovieView();
       setTimeout(setSlideToFocusReset, 250);
+      
       setPage();
     } else {
       setActive();
@@ -100,10 +76,76 @@ function controlLeft () {
   }
 }
 
+function controlLeft () {
+  if (indexRowCurrent == -1) {
+    if ($('.stt-movie-view-info .stt-btn.btn-1').hasClass('active')) {
+      $('.stt-movie-view-info .stt-btn.btn-1').removeClass('active');
+      $('.stt-movie-view-info .stt-btn.btn-1')
+        .find('img').attr('src', 'images/vod-home/icon/icon-play-normal.png');
+      $('.stt-movie-view-info .stt-btn.btn-2').addClass('active');
+      $('.stt-movie-view-info .stt-btn.btn-2')
+        .find('img').attr('src', 'images/vod-home/icon/icon-info-focus.png');
+    } else {
+      $('.stt-movie-view-info .stt-btn.btn-2').removeClass('active');
+      $('.stt-movie-view-info .stt-btn.btn-2')
+        .find('img').attr('src', 'images/vod-home/icon/icon-info-normal.png');
+      $('.stt-movie-view-info .stt-btn.btn-1').addClass('active');
+      $('.stt-movie-view-info .stt-btn.btn-1')
+        .find('img').attr('src', 'images/vod-home/icon/icon-play-focus.png')
+    }
+  } else {
+    if (indexMovieCurrent > 0) {
+      indexMovieCurrent -= 1;
+      if ((indexMovieCurrent + 1) % 7 == 0) {
+        var rowMovies = document.getElementsByClassName('stt-movie-row');
+        var $a = $(rowMovies[indexRowCurrent]).find('.stt-movie-row-list');
+        var trans = (138 + 30)*7;
+
+        if (indexRowCurrent == 1) {
+          numPageRow2 -= 1;
+          if (numPageRow2 < 1) numPageRow2 = 16;
+        } else if (indexRowCurrent == 2) {
+          numPageRow3 -= 1;
+          if (numPageRow3 < 1) numPageRow3 = 16;
+        }
+
+        // slide
+        $a.css({ 'transform': 'translateX('+ 3*(-trans)+ 'px)'});
+        setTimeout(function () {
+          $a.css({
+            'transition': 'all .2s linear',
+            'transform': 'translateX(' + 2*(-trans) +'px)'
+          })
+          setTimeout(function () {
+            $a.css({ 'transition': '' });
+          }, 200);
+        }, 20);
+        
+        indexMovieCurrent = 20; // hack code
+        $('.stt-movie-row-item-focus')
+          .hide()
+          .css({ 'transition': '' });
+        setCurrentMovieActive();
+        setCurrentMovieView();
+        setTimeout(setSlideToFocusReset, 250);
+        setPage();
+      } else {
+        setActive();
+      }
+    }
+  }
+}
+
 function controlDown() {
   if (indexRowCurrent < 2) {
     indexRowCurrent += 1;
-    if (indexRowCurrent == 1) { // row 2
+    if (indexRowCurrent == 0) {
+      $('.stt-movie-view-info .stt-btn').removeClass('active');
+      $('.stt-movie-view-info .stt-btn.btn-1').find('img').attr('src', 'images/vod-home/icon/icon-play-normal.png');
+      $('.stt-movie-view-info .stt-btn.btn-2').find('img').attr('src', 'images/vod-home/icon/icon-info-normal.png');
+      $('.stt-movie-row-item-focus').show();
+      return;
+    } else if (indexRowCurrent == 1) { // row 2
       tempIndexMovieCurrent1 = indexMovieCurrent; // lưu row 1
       if (startLoop2) {
         indexMovieCurrent = ((3 - 1)*7) + (tempIndexMovieCurrent1 % 7);
@@ -121,7 +163,7 @@ function controlDown() {
 }
 
 function controlUp() {
-  if (indexRowCurrent > 0) {
+  if (indexRowCurrent > -1) {
     indexRowCurrent -= 1;
     if (indexRowCurrent == 0) { // row 1
       tempIndexMovieCurrent2 = indexMovieCurrent; // lưu row 2
@@ -143,7 +185,22 @@ function controlUp() {
       indexMovieCurrent = ((curPage - 1)*7) + (tempIndexMovieCurrent3 % 7);
       // slide
       setActiveWithScroll();
+    } else if (indexRowCurrent == -1) {
+      /*tempIndexMovieCurrent1 = indexMovieCurrent;
+      indexMovieCurrent = -1;*/
+      $('.stt-movie-row-item-focus').hide();
+
+      $('.stt-movie-view-info .stt-btn').removeClass('active');
+      $('.stt-movie-view-info .stt-btn.btn-1').addClass('active');
+      $('.stt-movie-view-info .stt-btn.btn-1').find('img').attr('src', 'images/vod-home/icon/icon-play-focus.png');
     }
+  }
+}
+
+function controlEnter () {
+  if (indexRowCurrent == 1 || indexRowCurrent == 2) {
+    console.log(urlDetailMovies);
+    history.go(urlDetailMovies);
   }
 }
 
@@ -264,5 +321,6 @@ $(document).ready(function () {
   keyDown.right = controlRight;
   keyDown.down = controlDown;
   keyDown.up = controlUp;
+  keyDown.enter = controlEnter;
   init();
 });

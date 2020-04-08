@@ -42,8 +42,9 @@
   margin-left: 0.75rem;
 }
 
-.stt-btn.is-active {
-
+.stt-btn.active {
+  color: #212121;
+  background: #eeeeee;
 }
 
 .stt-btn-group {

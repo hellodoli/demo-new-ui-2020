@@ -3,7 +3,8 @@ var KEYCODE = {
     RIGHT: 39,
     UP: 38,
     DOWN: 40,
-    ENTER: 13
+    ENTER: 13,
+    BACK: 8
 };
 
 var keyDown = {
@@ -11,8 +12,12 @@ var keyDown = {
     left: function () {},
     up: function () {},
     down: function () {},
-    enter: function () {}
+    enter: function () {},
+    back: function () {}
 };
+
+var urlDetailMovies = location.origin + '/vod-detail-movies.html';
+console.log(urlDetailMovies);
 
 document.onkeydown = function(event) {
     switch (event.keyCode) {
@@ -33,8 +38,12 @@ document.onkeydown = function(event) {
             keyDown.down();
             break;
         case KEYCODE.ENTER:
-            keyDown.enter(); 
             console.log('Enter key pressed');
+            keyDown.enter(); 
+            break;
+        case KEYCODE.BACK:
+            console.log('Back key pressed');
+            keyDown.back(); 
             break;
     }
 };
