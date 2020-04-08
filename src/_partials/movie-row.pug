@@ -5,8 +5,12 @@ mixin movieRow (movies)
       div.page= movies.page
     .stt-movie-row-list
       each movie in movies.items
-        - var  v = movie.view;
-        - var dataView = '{ "bigBg": "' + v.bigBg + '", "year": "' + v.year + '", "duration": "' + v.duration.toString() + '", "type": "' + v.type + '", "ban": "' + v.ban + '" }';
-        .stt-movie-row-item(data-view= dataView)
-          .stt-img-holder-ratio
-            img(src= movie.src)
+        if typeof movie.src != 'undefined'
+          - var  v = movie.view;
+          - var dataView = '{ "bigBg": "' + v.bigBg + '", "year": "' + v.year + '", "duration": "' + v.duration.toString() + '", "type": "' + v.type + '", "ban": "' + v.ban + '" }';
+          .stt-movie-row-item(data-view= dataView)
+            .stt-img-holder-ratio
+              img(src= movie.src)
+        else
+          .stt-movie-row-item.is-add
+            .stt-img-holder-ratio

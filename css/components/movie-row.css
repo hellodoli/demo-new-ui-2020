@@ -27,11 +27,17 @@
   padding: 0 15px;
 }
 
+.stt-movie-row-item.is-add .stt-img-holder-ratio{
+  background: url("../../images/vod-home/poster-more.png") center center / cover no-repeat;
+  background-size: 100% 100%;
+}
+
 .stt-movie-row-item .stt-img-holder-ratio {
   width: 100%;
   height: 100%;
 }
 
+.stt-movie-row-item-focus-2,
 .stt-movie-row-item-focus {
   display: block;
   min-width: 162px;
@@ -40,4 +46,14 @@
   background-size: 100% 100%;
   position: absolute;
   z-index: 2;
+}
+
+.stt-movie-row-item-focus {
+  top: 388px;
+  left: 52px;
+}
+
+.stt-movie-row-item-focus-2 {
+  display: none;
+  z-index: 5;
 }

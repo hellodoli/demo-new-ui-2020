@@ -713,7 +713,7 @@ h6 {
     width: 500px;
     height: 100vh;
     float: right;
-    background: #252c34f0;
+    background: rgba(37, 44, 52, 0.75);
     color: white;
     text-align: center;
 }
@@ -746,20 +746,24 @@ h6 {
 /*----------------------------------------------------
 				08. Search Movie
 -----------------------------------------------------*/
-.meta-title h2{
+
+.meta-title h2 {
     font-size: 1.5rem;
     font-weight: normal;
     margin-bottom: 1rem;
 }
-.title-topic{
+
+.title-topic {
     font-family: 'RobotoCondensed-Light';
     font-size: 1.3rem;
 }
-.suggestions-area{
+
+.suggestions-area {
     overflow: hidden;
     position: relative;
     width: 100%;
 }
+
 .poster-row {
     margin: 0 -1rem;
     display: -ms-flexbox;

@@ -1,0 +1,160 @@
+include ../movie-row
+-
+  var m1 = {
+    src: 'images/vod-home/movies/1.png',
+    view: {
+      bigBg: 'images/vod-home/bg-transformers.jpg',
+      year: '2017',
+      duration: '149 phút',
+      type: 'Hành động',
+      ban: '16+'
+    }
+  };
+-
+  var m2 = {
+    src: 'images/vod-home/movies/2.png',
+    view: {
+      bigBg: 'images/vod-home/bg-aquaman.jpg',
+      year: '2017',
+      duration: '149 phút',
+      type: 'Hành động',
+      ban: '16+'
+    }
+  };
+-
+  var m3 = {
+    src: 'images/vod-home/movies/3.png',
+    view: {
+      bigBg: 'images/vod-home/bg-transformers.jpg',
+      year: '2017',
+      duration: '149 phút',
+      type: 'Hành động',
+      ban: '16+'
+    }
+  };
+-
+  var m4 = {
+    src: 'images/vod-home/movies/4.png',
+    view: {
+      bigBg: 'images/vod-home/bg-aquaman.jpg',
+      year: '2017',
+      duration: '149 phút',
+      type: 'Hành động',
+      ban: '16+'
+    }
+  };
+-
+  var m5 = {
+    src: 'images/vod-home/movies/5.png',
+    view: {
+      bigBg: 'images/vod-home/bg-transformers.jpg',
+      year: '2017',
+      duration: '149 phút',
+      type: 'Hành động',
+      ban: '16+'
+    }
+  };
+-
+  var m6 = {
+    src: 'images/vod-home/movies/6.png',
+    view: {
+      bigBg: 'images/vod-home/bg-aquaman.jpg',
+      year: '2017',
+      duration: '149 phút',
+      type: 'Hành động',
+      ban: '16+'
+    }
+  };
+-
+  var m7 = {
+    src: 'images/vod-home/movies/7.png',
+    view: {
+      bigBg: 'images/vod-home/bg-transformers.jpg',
+      year: '2017',
+      duration: '149 phút',
+      type: 'Hành động',
+      ban: '16+'
+    }
+  };
+-
+  var movieRow01 = {
+    id: 'movieRowHome1',
+    title: 'Phim hành động',
+    page: '1/16',
+    items: []
+  };
+-
+  var movieRow02 = {
+    id: 'movieRowHome2',
+    title: 'Phim kinh dị',
+    page: '1/35',
+    items: []
+  };
+-
+  var movieRow03 = {
+    id: 'movieRowHome3',
+    title: 'Phim viễn tưởng',
+    page: '1/16',
+    items: []
+  };
+
+-
+  var add = {
+    isAdd: true
+  };
+- for (var i = 0; i < 27; i++)
+    - if (i % 7 == 0)
+      - movieRow01.items.push(m1)
+      - movieRow02.items.push(m7)
+      - movieRow03.items.push(m1)
+    - if (i % 7 == 1)
+      - movieRow01.items.push(m2)
+      - movieRow02.items.push(m6)
+      - movieRow03.items.push(m2)
+    - if (i % 7 == 2)
+      - movieRow01.items.push(m3)
+      - movieRow02.items.push(m5)
+      - movieRow03.items.push(m3)
+    - if (i % 7 == 3)
+      - movieRow01.items.push(m4)
+      - movieRow02.items.push(m3)
+      - movieRow03.items.push(m4)
+    - if (i % 7 == 4)
+      - movieRow01.items.push(m5)
+      - movieRow02.items.push(m4)
+      - movieRow03.items.push(m5)
+    - if (i % 7 == 5)
+      - movieRow01.items.push(m6)
+      - movieRow02.items.push(m2)
+      - movieRow03.items.push(m6)
+    - if (i % 7 == 6)
+      - movieRow01.items.push(m7)
+      - movieRow02.items.push(m1)
+      - movieRow03.items.push(m7)
+
+- movieRow01.items.push(add)
+- movieRow02.items.push(m5)
+- movieRow03.items.push(m3)
+
+//- Main
+.stt-section.has-pd
+  .stt-movie-row-item-focus
+  .stt-movie-row-item-focus-2
+  .stt-movie-container
+    +movieRow(movieRow01)
+    +movieRow(movieRow02)
+    +movieRow(movieRow03)
+  .stt-movie-more.is-hide
+    .stt-movie-more-header
+      span Khám phá
+      span
+        | >
+      span Phim hành động (324)
+    .stt-movie-row(id= 'movieMoreList')
+      .stt-movie-row-list
+        each movie in movieRow02.items
+          .stt-movie-row-item
+            .stt-img-holder-ratio
+              img(src= movie.src)
+  .stt-section-overlay.is-top
+  .stt-section-overlay.is-bottom

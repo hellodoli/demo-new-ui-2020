@@ -1,0 +1,739 @@
+/******************************************************
+Teamplate: Demo WebBox
+Author: Thanh Nguyen
+Create_at: 04/05/2019 11:45
+*******************************************************/
+/*-----------------------------------------------------	
+	00. Style General 
+	01. Home Movie
+	02. Home Pay
+	03. Home Favorite
+	04. Categories
+	05. Categories More
+	06.	Details Movie
+	07.	Details Series Movie
+	08. Search Movie
+------------------------------------------------------*/
+
+/*----------------------------------------------------
+				00. Style General
+-----------------------------------------------------*/
+@font-face {
+	font-family: 'RobotoCondensed-Regular';
+	src: url('../fonts/RobotoCondensed-Regular.eot');
+	src: local('☺'), url('../fonts/RobotoCondensed-Regular.woff') format('woff'), url('../fonts/RobotoCondensed-Regular.ttf') format('truetype'), url('../fonts/RobotoCondensed-Regular.svg') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'RobotoCondensed-Light';
+	src: url('../fonts/RobotoCondensed-Light.eot');
+	src: local('☺'), url('../fonts/RobotoCondensed-Light.woff') format('woff'), url('../fonts/RobotoCondensed-Light.ttf') format('truetype'), url('../fonts/RobotoCondensed-Light.svg') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+body{
+	color: #333;
+	font-size: 18px;
+	font-family: 'RobotoCondensed-Light';
+}
+img{
+	height: auto;
+	-webkit-transition: all .3s ease;
+	   -moz-transition: all .3s ease;
+	    -ms-transition: all .3s ease;
+	     -o-transition: all .3s ease;
+	        transition: all .3s ease;
+}
+ul{
+	list-style: none;
+	padding: 0;
+	margin: 0 auto;
+}
+a{
+	color: #fff;
+}
+a:hover, a:focus{
+	color: #ff0;
+	text-decoration: none;
+}
+p{
+	margin-bottom: 0;
+}
+h1, h2, h3, h4, h5, h6{
+	font-family: 'RobotoCondensed-Regular';
+	line-height: normal;
+}
+.content-section{
+	background-color: #252c34;
+	height: 100vh;
+	padding: 3rem;
+	width: 100vw;
+}
+.list-layout{
+	height: 768px;
+    overflow: hidden;
+    overflow-y: auto;
+    transition: all .4s ease;
+}
+.list-layout ul li a{
+	display: block;
+	padding: .5rem 0;
+}
+/*----------------------------------------------------
+				00. Style General
+-----------------------------------------------------*/
+.stt-section {
+	width: 100%;
+	height: 100vh;
+	padding: 3rem;
+	background-color: #252c34;
+	overflow: hidden;
+}
+/*----------------------------------------------------
+				01. Home Movie
+-----------------------------------------------------*/
+
+/*----------------------------------------------------
+				02. Home Pay
+-----------------------------------------------------*/
+
+/*----------------------------------------------------
+				03. Home Favorite
+-----------------------------------------------------*/
+
+/*----------------------------------------------------
+				04. Categories
+-----------------------------------------------------*/
+
+/*----------------------------------------------------
+				05. Categories More
+-----------------------------------------------------*/
+
+/*----------------------------------------------------
+				06.	Details Movie
+-----------------------------------------------------*/
+.content-detail-movies{
+    background: url(../images/detail/movies/bg-poster.jpg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+	width: 100%;
+	height: 100vh;	
+	color: white;
+	font-size: 16pt;
+	overflow: hidden;
+    position: relative;
+}
+.content-detail-movies .container-main {
+    width: 44%;
+    position: absolute;
+    top: 15%;
+    left: 6%;
+}
+.content-detail-movies .line-2 {
+	padding: 14px 0;
+    color: #b9b9b9;
+}
+.content-detail-movies .line-2 span.year{
+	padding-left: 0 !important;
+}
+.content-detail-movies .line-2 span {
+    padding: 0 17px;
+    font-size: 14pt;
+}
+.content-detail-movies .line-3 {
+    font-size: 14pt;
+    padding: 0 0 14px 0;
+}
+.content-detail-movies .line-4 {
+    font-size: 14pt;
+	padding: 0 0 14px 0;
+	color: #b9b9b9;
+}
+.content-detail-movies .line-4 .td-content{
+	padding-left: 10px;
+}
+.content-detail-movies .button-pay.hover{
+	width: 255px;
+    height: 52px;
+    background: white;
+    border-radius: 10px;
+    color: black;
+    padding: 11px;
+    text-align: center;
+    font-weight: bolder;
+    padding-left: 40px;
+    position: relative;
+    font-size: 15pt;
+}
+.content-detail-movies .button-pay.hover .buyphim::before{
+	background: url(../images/detail/icon-pay-focus.png);
+    background-repeat: no-repeat;
+    background-size: 25px;
+    width: 40px;
+    height: 40px;
+    content: " ";
+    position: absolute;
+    left: 25px;
+    top: 13px;
+}
+.content-detail-movies .button-pay{
+	width: 255px;
+    height: 52px;    
+    border-radius: 10px;
+    color: #a5a8ab;		
+    padding: 11px;
+    text-align: center;
+    font-weight: bolder;
+    padding-left: 40px;
+    position: relative;
+	font-size: 15pt;
+	margin-top: 15px;
+}
+.content-detail-movies .button-pay .buyphim::before{
+	background: url(../images/detail/icon-pay-normal.png);
+    background-repeat: no-repeat;
+    background-size: 25px;
+    width: 40px;
+    height: 40px;
+    content: " ";
+    position: absolute;
+    left: 25px;
+    top: 13px;
+}
+.content-detail-movies .button-fav.hover{
+	width: 255px;
+    height: 52px;
+    background: white;
+    border-radius: 10px;
+    color: black;
+    padding: 11px;
+    font-weight: bolder;
+    padding-left: 68px;
+    position: relative;
+    font-size: 15pt;
+}
+.content-detail-movies .button-fav.hover .buyphim::before{
+	background: url(../images/detail/icon-favorite-focus.png);
+    background-repeat: no-repeat;
+    background-size: 25px;
+    width: 40px;
+    height: 40px;
+    content: " ";
+    position: absolute;
+    left: 25px;
+    top: 13px;
+}
+.content-detail-movies .button-fav{
+	width: 255px;
+    height: 52px;    
+    border-radius: 10px;
+    color: #a5a8ab;		
+    padding: 11px;
+    font-weight: bolder;
+    padding-left: 68px;
+    position: relative;
+    font-size: 15pt;
+}
+.content-detail-movies .button-fav .buyphim::before{
+	background: url(../images/detail/icon-favorite-normal.png);
+    background-repeat: no-repeat;
+    background-size: 25px;
+    width: 40px;
+    height: 40px;
+    content: " ";
+    position: absolute;
+    left: 25px;
+    top: 13px;
+}
+.content-detail-movies .button-discount{
+	position: relative;
+}
+.content-detail-movies .button-discount .bg-discount{
+	background: url(../images/detail/up-to.png);
+    background-repeat: no-repeat;
+    background-size: 75px;
+    width: 75px;
+    height: 75px;
+    content: " ";
+    position: absolute;
+    left: 300px;
+    top: -105px;
+    padding: 21px 18px;
+}
+.content-detail-movies .button-more-down{
+	position: absolute;
+    text-align: center;
+    width: 100%;
+    bottom: 50px;
+    color: #595b5d;
+}
+.content-detail-movies .button-more-down div{
+	margin-bottom: -5px;
+}
+.content-detail-movies .bg-blur{
+	display: none;
+}
+.content-detail-movies .container-suggest-movie{
+	display: none;
+}
+.content-detail-movies .container-main.hidden{
+	top: -18%;
+}
+.content-detail-movies .bg-blur.hidden{
+	display: block;
+	background: rgba(29, 33, 37, 0.4);
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+.content-detail-movies .button-more-down.hidden{
+	display: none;
+}
+.content-detail-movies .container-suggest-movie.hidden{
+    width: 100%;
+	display: block;
+	position: absolute;
+    top: 50%;
+    left: 6%;
+}
+.content-detail-movies .breadcum-info{
+	width: 86%;
+    position: absolute;
+    display: block;
+}
+.content-detail-movies .list-item-wrapper{
+    width: 100%;
+    height: 250px;
+    position: absolute;
+    display: block;
+    overflow-y: hidden;
+    overflow-x: hidden;
+}
+.content-detail-movies .list-item{
+	position: absolute;
+    width: 100%;
+    top: 35px;
+    left: 0;
+    display: inline-flex;
+}
+.content-detail-movies .list-item div {
+    margin-right: 20px;
+    width: 149px;
+}
+.content-detail-movies .list-item div img {
+    width: 149px;
+	padding: 6px;
+}
+.content-detail-movies .list-item div .border{
+	display: none;
+}
+.content-detail-movies .list-item div .border.hidden{
+	display: block;
+	border: 3px solid white !important;
+    border-radius: 8px;
+    position: absolute;
+    top: 0;
+    height: 100%;
+}
+
+/*----------------------------------------------------
+				07.	Details Series Movie
+-----------------------------------------------------*/
+.content-detail-series-movies{
+    background: url(../images/detail/series/bg-banner.jpg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+	width: 100%;
+	height: 100vh;	
+	color: white;
+	font-size: 16pt;
+	overflow: hidden;
+    position: relative;
+}
+.content-detail-series-movies .container-main {
+    width: 44%;
+    position: absolute;
+    top: 5%;
+    left: 6%;
+}
+.content-detail-series-movies .line-2 {
+	padding: 14px 0;
+    color: #b9b9b9;
+}
+.content-detail-series-movies .line-2 span.year{
+	padding-left: 0 !important;
+}
+.content-detail-series-movies .line-2 span {
+    padding: 0 17px;
+    font-size: 14pt;
+}
+.content-detail-series-movies .line-3 {
+    font-size: 14pt;
+    padding: 0 0 14px 0;
+}
+.content-detail-series-movies .line-4 {
+    font-size: 14pt;
+	padding: 0 0 14px 0;
+	color: #b9b9b9;
+}
+.content-detail-series-movies .line-4 .td-content{
+	padding-left: 10px;
+}
+
+.content-detail-series-movies .button-pay.hover{
+	width: 255px;
+    height: 52px;
+    background: white;
+    border-radius: 10px;
+    color: black;
+    padding: 11px;
+    font-weight: bolder;
+    padding-left: 68px;
+    position: relative;
+    font-size: 15pt;
+}
+.content-detail-series-movies .button-pay.hover .buyphim::before{
+	background: url(../images/detail/icon-play-focus.png);
+    background-repeat: no-repeat;
+    background-size: 25px;
+    width: 40px;
+    height: 40px;
+    content: " ";
+    position: absolute;
+    left: 25px;
+    top: 13px;
+}
+.content-detail-series-movies .button-pay{
+	width: 255px;
+    height: 52px;    
+    border-radius: 10px;
+    color: #a5a8ab;		
+    padding: 11px;
+    font-weight: bolder;
+    padding-left: 68px;
+    position: relative;
+    font-size: 15pt;
+}
+.content-detail-series-movies .button-pay .buyphim::before{
+	background: url(../images/detail/icon-play-normal.png);
+    background-repeat: no-repeat;
+    background-size: 25px;
+    width: 40px;
+    height: 40px;
+    content: " ";
+    position: absolute;
+    left: 25px;
+    top: 13px;
+}
+
+.content-detail-series-movies .button-fav.hover{
+	width: 255px;
+    height: 52px;
+    background: white;
+    border-radius: 10px;
+    color: black;
+    padding: 11px;
+    font-weight: bolder;
+    padding-left: 68px;
+    position: relative;
+    font-size: 15pt;
+}
+.content-detail-series-movies .button-fav.hover .buyphim::before{
+	background: url(../images/detail/icon-favorite-focus.png);
+    background-repeat: no-repeat;
+    background-size: 25px;
+    width: 40px;
+    height: 40px;
+    content: " ";
+    position: absolute;
+    left: 25px;
+    top: 13px;
+}
+.content-detail-series-movies .button-fav{
+	width: 255px;
+    height: 52px;    
+    border-radius: 10px;
+    color: #a5a8ab;		
+    padding: 11px;
+    font-weight: bolder;
+    padding-left: 68px;
+    position: relative;
+    font-size: 15pt;
+}
+.content-detail-series-movies .button-fav .buyphim::before{
+	background: url(../images/detail/icon-favorite-normal.png);
+    background-repeat: no-repeat;
+    background-size: 25px;
+    width: 40px;
+    height: 40px;
+    content: " ";
+    position: absolute;
+    left: 25px;
+    top: 13px;
+}
+
+.content-detail-series-movies .button-episode.hover{
+	width: 255px;
+    height: 52px;
+    background: white;
+    border-radius: 10px;
+    color: black;
+    padding: 11px;
+    font-weight: bolder;
+    padding-left: 68px;
+    position: relative;
+    font-size: 15pt;
+}
+.content-detail-series-movies .button-episode.hover .buyphim::before{
+	background: url(../images/detail/icon-chaptter-focus.png);
+    background-repeat: no-repeat;
+    background-size: 28px;
+    width: 45px;
+    height: 45px;
+    content: " ";
+    position: absolute;
+    left: 25px;
+    top: 17px;
+}
+.content-detail-series-movies .button-episode{
+	width: 255px;
+    height: 52px;    
+    border-radius: 10px;
+    color: #a5a8ab;		
+    padding: 11px;
+    font-weight: bolder;
+    padding-left: 68px;
+    position: relative;
+    font-size: 15pt;
+    margin: 0 0;
+}
+.content-detail-series-movies .button-episode .buyphim::before{
+	background: url(../images/detail/icon-chapter-normal.png);
+    background-repeat: no-repeat;
+    background-size: 28px;
+    width: 45px;
+    height: 45px;
+    content: " ";
+    position: absolute;
+    left: 25px;
+    top: 17px;
+}
+.content-detail-series-movies .button-more-down{
+	position: absolute;
+    text-align: center;
+    width: 100%;
+    bottom: 50px;
+    color: #595b5d;
+}
+.content-detail-series-movies .button-more-down div{
+	margin-bottom: -5px;
+}
+.content-detail-series-movies .bg-blur{
+	display: none;
+}
+.content-detail-series-movies .container-suggest-movie{
+	display: none;
+}
+.content-detail-series-movies .container-main.hidden{
+	top: -28%;
+}
+.content-detail-series-movies .bg-blur.hidden{
+	display: block;
+	background: rgba(29, 33, 37, 0.4);
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+.content-detail-series-movies .button-more-down.hidden{
+	display: none;
+}
+.content-detail-series-movies .container-suggest-movie.hidden{
+    width: 100%;
+	display: block;
+	position: absolute;
+    top: 50%;
+    left: 6%;
+}
+.content-detail-series-movies .breadcum-info{
+	width: 86%;
+    position: absolute;
+    display: block;
+    font-size: 15pt;
+}
+.content-detail-series-movies .list-item-wrapper{
+    width: 1232px;
+    height: 250px;
+    position: absolute;
+    display: block;
+    overflow-y: hidden;
+    overflow-x: hidden;
+}
+.content-detail-series-movies .list-item{
+	position: absolute;
+    width: 100%;
+    top: 35px;
+    left: 0;
+    display: inline-flex;
+}
+.content-detail-series-movies .list-item div {
+    margin-right: 20px;
+    width: 149px;
+}
+.content-detail-series-movies .list-item div img {
+	padding: 6px;
+}
+.content-detail-series-movies .list-item div .border{
+	display: none;
+}
+.content-detail-series-movies .list-item div .border.hidden{
+	display: block;
+	border: 3px solid white !important;
+    border-radius: 8px;
+    position: absolute;
+    top: 0;
+    height: 100%;
+}
+.content-detail-series-movies-episodes{
+	display: none;
+}
+.content-detail-series-movies-episodes.hidden{
+	background: rgba(0, 0, 0, 0.42);
+	display: block;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+}
+.content-detail-series-movies-episodes .bg-list-episodes{
+	width: 40%;
+    height: 100vh;
+    float: right;
+    background: rgba(37, 44, 52, 0.75);
+    color: white;
+    text-align: center;
+}
+.content-detail-series-movies-episodes .list-season{
+	padding: 32px 15px;
+    font-size: 20pt;
+}
+.content-detail-series-movies-episodes .ul-list-episodes{
+	font-size: 15pt;
+}
+.content-detail-series-movies-episodes .ul-list-episodes li {
+    padding: 15px 35px 15px 35px;
+    width: 70%;
+    margin: 0 auto;
+	border-radius: 8px;
+	color: #a5a5a5;
+	text-align: left;
+}
+.content-detail-series-movies-episodes .ul-list-episodes li.hover{
+	background: white;
+    color: black;
+    font-weight: bolder;
+}
+@media screen and (min-width: 1920px) {
+    .content-detail-movies .line-1{
+        font-size: 32pt;
+    }
+    .content-detail-movies .line-2 span{
+        font-size: 20pt;
+    }
+    .content-detail-movies .line-3{
+        font-size: 21pt;
+    }
+    .content-detail-movies .line-4 {
+        font-size: 21pt;
+    }
+    .content-detail-movies .button-pay {
+        width: 308px;
+        font-size: 19pt;
+    }
+    .content-detail-movies .button-fav {
+        padding-left: 78px;
+        font-size: 19pt;
+    }
+    .content-detail-movies .button-pay.hover{
+        width: 285px;
+        height: 55px;
+        padding: 8px;
+        padding-left: 55px;
+        font-size: 18pt;
+    }
+    .content-detail-movies .button-fav.hover{
+        width: 285px;
+        height: 55px;
+        padding: 8px;
+        padding-left: 73px;
+        font-size: 18pt;
+    }
+    .content-detail-series-movies .container-main.hidden {
+        top: -19%;
+    }
+    .content-detail-series-movies .line-3 {
+        font-size: 21pt;
+    }
+    .content-detail-series-movies .line-2 span {
+        font-size: 20pt;
+    }
+    .content-detail-series-movies .line-4 {
+        font-size: 20pt;
+    }
+    .content-detail-series-movies .button-episode{
+        margin: 15px 0;
+    }
+    .content-detail-series-movies-episodes .list-season {
+        font-size: 26pt;
+    }
+    .content-detail-series-movies-episodes .ul-list-episodes {
+        font-size: 21pt;
+    }
+    .content-detail-series-movies .button-pay, .content-detail-series-movies .button-episode, .content-detail-series-movies .button-fav{
+        font-size: 21pt;
+    }
+    .content-detail-series-movies .button-pay .buyphim::before, .content-detail-series-movies .button-fav .buyphim::before, .content-detail-series-movies .button-episode .buyphim::before{
+        top: 19px;
+    }
+    .content-detail-series-movies .button-pay.hover, .content-detail-series-movies .button-episode.hover, .content-detail-series-movies .button-fav.hover{
+        width: 270px;
+        height: 65px;
+        font-size: 21pt;
+    }
+    .content-detail-series-movies .button-pay.hover .buyphim::before, .content-detail-series-movies .button-fav.hover .buyphim::before {
+        top: 22px;
+    }
+    .content-detail-series-movies .button-episode.hover .buyphim::before {
+        top: 22px;
+    }
+    .content-detail-series-movies .breadcum-info{
+        font-size: 23pt;
+    }
+    .content-detail-series-movies .list-item{
+        top: 50px;
+    }
+    .content-detail-series-movies .list-item div{
+        width: 225px;
+    }
+    .content-detail-series-movies .list-item div img{
+        width: 225px;
+    }
+    .content-detail-movies .list-item div img {
+        width: 225px;
+    }
+    .content-detail-movies .list-item div {
+        width: 225px;
+    }
+    .content-detail-movies .list-item{
+        top: 50px;
+    }
+    .content-detail-movies .breadcum-info{
+        font-size: 28px;
+    }
+    .content-detail-movies .container-main.hidden{
+        top: -13%;
+    }
+  }
+/*----------------------------------------------------
+				08. Search Movie
+-----------------------------------------------------*/
