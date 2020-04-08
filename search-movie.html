@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Demo Webbox</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/animate.min.css">
+    <link rel="stylesheet" href="css/main.css">
+</head>
+
+<body>
+    <section class="content-section">
+        <div class="container">
+            <div class="meta-title">
+                <h2>Tìm kiếm</h2>
+            </div>
+            <div class="search-area">
+                <div class="form-search">
+                    <input type="input" class="form-control search active" id="txt-search" placeholder="Tìm kiếm...">
+                </div>
+                <div id="list-result" class="list-result"></div>
+            </div>
+            <div class="row justify-content-between align-items-center pt-3 pb-2">
+                <div class="col-6">
+                    <h3 class="title-topic">Kết quả tìm được</h3>
+                </div>
+                <div class="col-6">
+                    <div class="text-right">
+                    	<span>1/5</span>
+                        <span id="total-poster"></span>
+                    </div>
+                </div>
+            </div>
+            <div id="poster-result" class="poster-row"></div>
+            <div class="row justify-content-between align-items-center py-3">
+                <div class="col-6">
+                    <h3 class="title-topic">Gợi ý cho bạn</h3>
+                </div>
+                <div class="col-6">
+                    <div class="text-right">
+                    	<span id="curent-suggestions"></span>/
+                        <span id="total-suggestions"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="suggestions-area">
+            	<div id="suggestions-carousel" class="poster-row"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- jQuery -->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/jquery-migrate.min.js"></script>
+    <script src="js/main.js"></script>
+    <script type="text/javascript">
+    	jQuery(document).ready(function() {
+	        var data = [{
+	            'id': 1,
+	            'title': 'Frozen 2',
+	            'image': 'images/search/1.png'
+	        }, {
+	            'id': 2,
+	            'title': 'Frozen 3',
+	            'image': 'images/search/2.png'
+	        }, {
+	            'id': 3,
+	            'title': 'Nu hoang bang gia 1',
+	            'image': 'images/search/3.png'
+	        }, {
+	            'id': 4,
+	            'title': 'Nu hoang bang gia 2',
+	            'image': 'images/search/4.png'
+	        }, {
+	            'id': 5,
+	            'title': 'Nu hoang bang gia 3',
+	            'image': 'images/search/5.png'
+	        }];
+
+	        jQuery('#txt-search').keyup(function() {
+	            var searchField = jQuery(this).val();
+	            if (searchField === '') {
+	                jQuery('#list-result').html('');
+	                jQuery('#poster-result').html('');
+	                return;
+	            }
+
+	            var regex = new RegExp(searchField, 'i');
+	            var output = '';
+	            var poster = '';
+	            jQuery.each(data, function(key, val) {
+	                if ((val.title.search(regex) != -1)) {
+	                    output += '<span>' + val.title + '</span>';
+
+	                    poster += '<div class="poster-item">';
+	                    poster += '<img src="' + val.image + '" alt="' + val.title + '">';
+	                    poster += '</div>';
+	                }
+	            });
+	            jQuery('#list-result').html(output);
+	            jQuery('#poster-result').html(poster);
+	            
+	        });
+
+	        var suggestions = [
+	        	{
+	        		'id': '01',
+	        		'title': '',
+	        		'image': 'images/search/poster11_03.png'
+	        	},
+	        	{
+	        		'id': '02',
+	        		'title': '',
+	        		'image': 'images/search/poster11_05.png'
+	        	},
+	        	{
+	        		'id': '03',
+	        		'title': '',
+	        		'image': 'images/search/poster11_07.png'
+	        	},
+	        	{
+	        		'id': '04',
+	        		'title': '',
+	        		'image': 'images/search/poster11_09.png'
+	        	},
+	        	{
+	        		'id': '05',
+	        		'title': '',
+	        		'image': 'images/search/poster11_11.png'
+	        	},
+	        	{
+	        		'id': '06',
+	        		'title': '',
+	        		'image': 'images/search/poster11_13.png'
+	        	},
+	        	{
+	        		'id': '07',
+	        		'title': '',
+	        		'image': 'images/search/poster11_15.png'
+	        	},
+	        	{
+	        		'id': '08',
+	        		'title': '',
+	        		'image': 'images/search/poster11_17.png'
+	        	}
+	        ];
+
+	        var suggestions_item = '';
+	        jQuery.each(suggestions, function(key, val){
+	        	suggestions_item += '<div class="poster-item">'; 
+	        	suggestions_item += '<img src="' + val.image + '" alt="' + val.title + '" />'; 
+	            suggestions_item += '</div>';
+	        });
+	        jQuery('#suggestions-carousel').html(suggestions_item);
+	        jQuery('#total-suggestions').html(suggestions.length);
+
+	        var focusUp = 0;
+	        var focusItem = 1;
+	        var left = 0;
+	        var currentItem = jQuery('.poster-item').width();
+	        var countLeft = 0;
+	        var KEYCODE = {
+	            LEFT: 37,
+	            RIGHT: 39,
+	            UP: 38,
+	            DOWN: 40,
+	            ENTER: 13
+	        };
+
+	        jQuery('.poster-item').css('width', currentItem + 32);
+
+	        document.onkeydown = function(event) {
+	            switch (event.keyCode) {
+	                case KEYCODE.LEFT:
+	                    if (focusItem > 1) {
+	                        document.getElementsByClassName('poster-item')[focusItem - 1].classList.remove('active');
+	                        focusItem--;
+	                    }
+	                    if ((focusItem - 1) == 0) {
+	                        left = 0;
+	                        countLeft = 0;
+	                        $('.poster-row').css({
+	                        	'width': (currentItem + 32) * suggestions.length,
+	                        	'left': left + 'px',
+	                        	'transition': 'all 800ms ease 0s',
+	                        	'transform': 'translate3d('+ (currentItem + 32) + 'px, 0px, 0px)'
+	                        });
+	                        document.getElementsByClassName('poster-item')[focusItem - 1].classList.add('active');
+	                    } else {
+	                        document.getElementsByClassName('poster-item')[focusItem - 1].classList.add('active');
+	                        if (focusItem % 8 == 0) {
+	                            left += currentItem + 32;
+	                            $('.poster-row').css({
+	                            	'width': (currentItem + 32) * suggestions.length,
+	                            	'left': left + 'px',
+	                            	'transition': 'all 800ms ease 0s',
+	                            	'transform': 'translate3d('+ (currentItem + 32) + 'px, 0px, 0px)'
+	                            });
+	                        }
+	                    }
+	                    console.log('Left key pressed');
+	                    break;
+	                case KEYCODE.UP:
+	                	if(focusUp == 1){
+                            //$('.state').removeClass('hidden');
+                            focusUp--;
+                            document.getElementsByClassName('search')[focusUp].classList.add('active');
+                            //document.getElementsByClassName('state').classList.remove('hidden');
+                        }else if(focusUp > 0){
+                            document.getElementsByClassName('search')[focusUp].classList.remove('active');
+                            focusUp--;
+                            document.getElementsByClassName('search')[focusUp].classList.add('active');
+                        }
+	                    console.log('Up key pressed');
+	                    break;
+	                case KEYCODE.RIGHT:
+	                    document.getElementsByClassName('poster-item')[focusItem - 1].classList.remove('active');
+	                    focusItem++;
+	                    if (document.getElementsByClassName('poster-item')[focusItem - 1]) {
+	                        if ((focusItem - 1) == 0) {
+	                            left = 0;
+	                            $('.poster-row').css({
+	                            	'width': (currentItem + 32) * suggestions.length,
+	                            	'left': left + 'px',
+	                            	'transition': 'all 800ms ease 0s',
+	                            	'transform': 'translate3d('+ -(currentItem + 32) + 'px, 0px, 0px)'
+
+	                            });
+	                            document.getElementsByClassName('poster-item')[focusItem - 1].classList.add('active');
+	                        } else {
+	                            document.getElementsByClassName('poster-item')[focusItem - 1].classList.add('active');
+	                            var lengthArray = $('.poster-item').length;
+	                            if (focusItem % 8 == 0) {
+	                                if ((focusItem / 8) > countLeft) {
+	                                    left -= currentItem + 32;
+	                                    $('.poster-row').css({
+	                                    	'left': left + 'px',
+	                                    	'transition': 'all 800ms ease 0s',
+	                                    	'transform': 'translate3d('+ -(currentItem + 32) + 'px, 0px, 0px)'
+	                                    });
+	                                    countLeft = focusItem / 8;
+	                                }
+	                            }
+	                        }
+	                    } else {
+	                        focusItem--;
+	                        document.getElementsByClassName('poster-item')[focusItem - 1].classList.add('active');
+	                    }
+	                    console.log('Right key pressed');
+	                    break;
+	                case KEYCODE.DOWN:
+	                    if (focusUp >= 0) {
+	                        document.getElementsByClassName('search')[focusUp].classList.remove('active');
+	                        focusUp++;
+	                        if (focusUp == 1) {
+	                            //$('.state').addClass('active');
+	                            document.getElementsByClassName('poster-item')[focusItem - 1].classList.add('active');
+	                        } else {
+	                            document.getElementsByClassName('button')[focusUp].classList.add('hover');
+	                        }
+	                    }
+	                    console.log('Down key pressed');
+	                    break;
+	                case KEYCODE.ENTER:
+	                    console.log('Enter key pressed');
+	                    break;
+	            }
+	        };
+        });
+    </script>
+</body>
+
+</html>
