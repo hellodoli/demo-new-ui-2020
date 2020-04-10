@@ -160,7 +160,10 @@
 	        });
 	        jQuery('#suggestions-carousel').html(suggestions_item);
 	        jQuery('#total-suggestions').html(suggestions.length);
-
+	        
+        		
+        	var item = 1;
+        	jQuery('#curent-suggestions').html(item);
 	        var focusUp = 0;
 	        var focusItem = 1;
 	        var left = 0;
@@ -171,7 +174,8 @@
 	            RIGHT: 39,
 	            UP: 38,
 	            DOWN: 40,
-	            ENTER: 13
+	            ENTER: 13,
+	            BACK: 8
 	        };
 
 	        jQuery('.poster-item').css('width', currentItem + 32);
@@ -205,6 +209,10 @@
 	                            });
 	                        }
 	                    }
+	                    if(item >= 1){
+	                    	item--;
+	                    }
+	                    jQuery('#curent-suggestions').html(item);
 	                    console.log('Left key pressed');
 	                    break;
 	                case KEYCODE.UP:
@@ -253,6 +261,10 @@
 	                        focusItem--;
 	                        document.getElementsByClassName('poster-item')[focusItem - 1].classList.add('active');
 	                    }
+	                    if(item <= suggestions.length - 1){
+	                    	item++;
+	                    }
+	                    jQuery('#curent-suggestions').html(item);
 	                    console.log('Right key pressed');
 	                    break;
 	                case KEYCODE.DOWN:
@@ -271,6 +283,9 @@
 	                case KEYCODE.ENTER:
 	                    console.log('Enter key pressed');
 	                    break;
+                    case KEYCODE.BACK:
+	                	window.history.back()
+	                	break;
 	            }
 	        };
         });

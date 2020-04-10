@@ -8,18 +8,20 @@ var KEYCODE = {
 };
 
 var keyDown = {
-    right: function () {},
-    left: function () {},
-    up: function () {},
-    down: function () {},
-    enter: function () {},
-    back: function () {}
+    right: function() {},
+    left: function() {},
+    up: function() {},
+    down: function() {},
+    enter: function() {},
+    back: function() {}
 };
 
 var urlDetailMovies = location.origin + '/vod-detail-movies.html';
 var urlDetailSeriesMovies = location.origin + '/vod-detail-series-movies.html';
 var urlCategoriesMovies = location.origin + '/vod-categories.html';
 var urlHomeMoview = location.origin + '/vod-home.html';
+var urlSearchMovie = location.origin + '/vod-search-movie.html';
+var urlHomePay = location.origin + '/vod-home-pay.html';
 
 document.onkeydown = function(event) {
     switch (event.keyCode) {
@@ -41,11 +43,11 @@ document.onkeydown = function(event) {
             break;
         case KEYCODE.ENTER:
             console.log('Enter key pressed');
-            keyDown.enter(); 
+            keyDown.enter();
             break;
         case KEYCODE.BACK:
             console.log('Back key pressed');
-            keyDown.back(); 
+            keyDown.back();
             break;
     }
 };

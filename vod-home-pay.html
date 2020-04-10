@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="">
+	<head>
+	    <meta charset="utf-8">
+	    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	    <meta name="viewport" content="width=device-width, initial-scale=1">
+	    <title>Demo Webbox</title>
+
+	    <!-- Bootstrap CSS -->
+	    <link rel="stylesheet" href="css/bootstrap.min.css">
+	    <link rel="stylesheet" href="css/animate.min.css">
+	    <link rel="stylesheet" href="css/main.css">
+	</head>
+
+	<body>
+	    <section class="content-section">
+	        <div class="container">
+	            <div class="nav-menu">
+	                <li class="menu-item">Trang chủ</li>
+	                <li class="menu-item">Khám phá</li>
+	                <li class="menu-item">Đã thuê</li>
+	                <li class="menu-item">Tìm kiếm</li>
+	                <hr />
+	            </div>
+	            <div class="meta-title text-center">
+	                <img src="images/search/search_video.png" alt="">
+	                <h2 class="not-content">Chưa có nội dung</h2>
+	                <p>Truy cập vào mục phim có phí để thưởng thức các phim mới nhất</p>
+	            </div>
+	            <div class="py-5 text-center">
+	                <button type="submit" class="btn btn-submit">Đến mục phim có phí</button>
+	            </div>
+	            <div id="poster-big" class="poster-three"></div>
+	        </div>
+	    </section>
+
+	    <!-- jQuery -->
+	    <script src="js/jquery.min.js"></script>
+	    <script src="js/bootstrap.min.js"></script>
+	    <script src="js/popper.min.js"></script>
+	    <script src="js/jquery-migrate.min.js"></script>
+	    <script src="js/main.js"></script>
+
+	    <script type="text/javascript">
+	        var KEYCODE = {
+	            LEFT: 37,
+	            RIGHT: 39,
+	            UP: 38,
+	            DOWN: 40,
+	            ENTER: 13,
+	            BACK: 8
+	        };
+
+	        var poster_big = [
+		        {
+		            'id': '01',
+		            'image': 'images/search/QC_02.png'
+		        }, 
+		        {
+		            'id': '02',
+		            'image': 'images/search/QC_04.png'
+		        }, 
+		        {
+		            'id': '03',
+		            'image': 'images/search/QC_06.png'
+		        }
+	        ];
+
+	        var html = '';
+	        var totalPoster = poster_big.length;
+	        jQuery.each(poster_big, function(key, val) {
+	            html += '<div class="column-three">';
+	            html += '<img src="' + val.image + '" alt="">';
+	            html += '</div>';
+	        });
+	        jQuery('#poster-big').append(html);
+	        jQuery('.nav-menu li:nth-child(3)').addClass('active');
+
+	        var activeItem = 1;
+	        var activeMenu = 3;
+	        var indexRowCurrent = 0;
+	        var indexMenuCurrent = 0;
+
+	        jQuery(document).ready(function() {
+	            document.onkeydown = function(event) {
+	                switch (event.keyCode) {
+	                    case KEYCODE.UP:
+	                    	if(indexRowCurrent > 0){
+		                    	indexRowCurrent -= 1;
+			                    if (indexRowCurrent == 0){
+			                    	document.getElementsByClassName('menu-item')[activeMenu - 1].classList.add('active');
+			                    	jQuery('.btn-submit').removeClass('active');
+			                    }else if (indexRowCurrent == 1) {
+			                    	jQuery('.btn-submit').addClass('active');
+			                    	jQuery('#poster-big').children().removeClass('active');
+			                    }
+			                }
+			                console.log(indexRowCurrent);
+	                        break;
+	                    case KEYCODE.DOWN:
+	                		if(indexRowCurrent <= 1){
+	                			indexRowCurrent += 1;
+		                		if (indexRowCurrent == 1){
+		                			jQuery('.nav-menu li').removeClass('active');
+		                			jQuery('.btn-submit').addClass('active');
+		                		}
+		                		else if (indexRowCurrent == 2){
+			                        jQuery('.btn-submit').removeClass('active');
+			                        jQuery('#poster-big').children(':first').addClass('active');
+		                    	}
+		                    	console.log(indexRowCurrent);
+	                    	}
+	                        break;
+	                    case KEYCODE.LEFT:
+	                		if(indexRowCurrent == 2){
+		                        if (activeItem > 1) {
+		                            document.getElementsByClassName('column-three')[activeItem - 1].classList.remove('active');
+		                            activeItem--;
+		                        }
+		                        if ((activeItem - 1) == 0) {
+		                            document.getElementsByClassName('column-three')[activeItem - 1].classList.add('active');
+		                        } else {
+		                            document.getElementsByClassName('column-three')[activeItem - 1].classList.add('active');
+		                        }
+	                        }else if(indexRowCurrent == 0){
+	                    		indexMenuCurrent -= 1;
+	                    		if (activeMenu > 1) {
+		                            document.getElementsByClassName('menu-item')[activeMenu - 1].classList.remove('active');
+		                            activeMenu--;
+		                        }
+		                        if ((activeMenu - 1) == 0) {
+		                            document.getElementsByClassName('menu-item')[activeMenu - 1].classList.add('active');
+		                        } else {
+		                            document.getElementsByClassName('menu-item')[activeMenu - 1].classList.add('active');
+		                        }
+	                        }
+	                        break;
+	                    case KEYCODE.RIGHT:
+	                		if(indexRowCurrent == 2){
+	                			document.getElementsByClassName('column-three')[activeItem - 1].classList.remove('active');
+		                        activeItem++;
+		                        if (document.getElementsByClassName('column-three')[activeItem - 1]) {
+		                            if ((activeItem - 1) == 0) {
+		                                document.getElementsByClassName('column-three')[activeItem - 1].classList.add('active');
+		                            } else {
+		                                document.getElementsByClassName('column-three')[activeItem - 1].classList.add('active');
+		                            }
+		                        } else {
+		                            activeItem--;
+		                            document.getElementsByClassName('column-three')[activeItem - 1].classList.add('active');
+		                        }
+	                		}
+	                		else if(indexRowCurrent == 0){
+	                			if (indexMenuCurrent <= 3) {
+						            //indexMenuCurrent += 1;
+						            document.getElementsByClassName('menu-item')[activeMenu - 1].classList.remove('active');
+			                        activeMenu++;
+			                        if (document.getElementsByClassName('menu-item')[activeMenu - 1]) {
+			                            if ((activeMenu - 1) == 0) {
+			                                document.getElementsByClassName('menu-item')[activeMenu - 1].classList.add('active');
+			                            } else {
+			                                document.getElementsByClassName('menu-item')[activeMenu - 1].classList.add('active');
+			                            }
+			                        } else {
+			                            activeMenu--;
+			                            document.getElementsByClassName('menu-item')[activeMenu - 1].classList.add('active');
+			                        }
+						        }
+	                		}
+	                    	break;
+	                	case KEYCODE.ENTER:
+	            			if (indexRowCurrent == -2) {
+						        if ($('.menu-item.active').html() == 'Khám phá') {
+						            console.log(urlCategoriesMovies);
+						            location.href = urlCategoriesMovies;
+						        }
+						        else if ($('.menu-item.active').html() == 'Đã thuê') {
+						            location.href = urlHomePay;
+						        }
+						        else if ($('.menu-item.active').html() == 'Tìm kiếm') {
+						            location.href = urlSearchMovie;
+						        }
+						        return;
+						    }
+						    if (indexRowCurrent == 1) {
+						        location.href = urlDetailMovies;
+						    } else {
+						        location.href = urlDetailSeriesMovies;
+						    }
+	                		break;
+	            		case KEYCODE.BACK:
+	                        window.history.back()
+	                        break;
+	                }
+	            };
+	        });
+	    </script>
+	</body>
+</html>
